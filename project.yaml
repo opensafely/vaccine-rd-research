@@ -12,7 +12,7 @@ actions:
         cohort: output/input.csv
 
   run_model:
-    run: stata-mp:latest analysis/model.do
+    run: r:latest analysis/1-basic-rd.R
     needs: [gen_std_popn]
     outputs:
       moderately_sensitive:
