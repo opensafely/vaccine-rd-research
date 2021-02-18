@@ -1,0 +1,164 @@
+-- Attaching packages --------------------------------------- tidyverse 1.3.0 --
+v ggplot2 3.3.2     v purrr   0.3.4
+v tibble  3.0.3     v dplyr   1.0.2
+v tidyr   1.1.2     v stringr 1.4.0
+v readr   1.3.1     v forcats 0.5.0
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+[1] 10000    51
+[1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame" 
+ [1] "covid_vax_1_date"                   "covid_vax_2_date"                  
+ [3] "covid_vax_3_date"                   "covid_vax_4_date"                  
+ [5] "covid_vax_pfizer_1_date"            "covid_vax_pfizer_2_date"           
+ [7] "covid_vax_pfizer_3_date"            "covid_vax_pfizer_4_date"           
+ [9] "covid_vax_az_1_date"                "covid_vax_az_2_date"               
+[11] "covid_vax_az_3_date"                "covid_vax_az_4_date"               
+[13] "prior_positive_test_date"           "prior_primary_care_covid_case_date"
+[15] "prior_admitted_for_covid_date"      "positive_test_1_date"              
+[17] "primary_care_covid_case_1_date"     "admitted_1_date"                   
+[19] "coviddeath_date"                    "death_date"                        
+[21] "age"                                "sex"                               
+[23] "bmi"                                "has_follow_up_previous_year"       
+[25] "ethnicity_16"                       "ethnicity"                         
+[27] "practice_id"                        "stp"                               
+[29] "region"                             "imd"                               
+[31] "care_home_type"                     "care_home"                         
+[33] "chronic_cardiac_disease"            "current_copd"                      
+[35] "dmards"                             "dementia"                          
+[37] "dialysis"                           "solid_organ_transplantation"       
+[39] "chemo_or_radio"                     "intel_dis_incl_downs_syndrome"     
+[41] "lung_cancer"                        "cancer_excl_lung_and_haem"         
+[43] "haematological_cancer"              "bone_marrow_transplant"            
+[45] "cystic_fibrosis"                    "sickle_cell_disease"               
+[47] "permanant_immunosuppression"        "temporary_immunosuppression"       
+[49] "psychosis_schiz_bipolar"            "asplenia"                          
+[51] "patient_id"                        
+                  covid_vax_1_date                   covid_vax_2_date 
+                            "Date"                             "Date" 
+                  covid_vax_3_date                   covid_vax_4_date 
+                            "Date"                             "Date" 
+           covid_vax_pfizer_1_date            covid_vax_pfizer_2_date 
+                            "Date"                             "Date" 
+           covid_vax_pfizer_3_date            covid_vax_pfizer_4_date 
+                            "Date"                             "Date" 
+               covid_vax_az_1_date                covid_vax_az_2_date 
+                            "Date"                             "Date" 
+               covid_vax_az_3_date                covid_vax_az_4_date 
+                            "Date"                             "Date" 
+          prior_positive_test_date prior_primary_care_covid_case_date 
+                            "Date"                             "Date" 
+     prior_admitted_for_covid_date               positive_test_1_date 
+                            "Date"                             "Date" 
+    primary_care_covid_case_1_date                    admitted_1_date 
+                            "Date"                             "Date" 
+                   coviddeath_date                         death_date 
+                            "Date"                             "Date" 
+                               age                                sex 
+                         "numeric"                        "character" 
+                               bmi        has_follow_up_previous_year 
+                       "character"                          "numeric" 
+                      ethnicity_16                          ethnicity 
+                         "numeric"                          "numeric" 
+                       practice_id                                stp 
+                         "numeric"                        "character" 
+                            region                                imd 
+                       "character"                          "numeric" 
+                    care_home_type                          care_home 
+                       "character"                          "numeric" 
+           chronic_cardiac_disease                       current_copd 
+                         "numeric"                          "numeric" 
+                            dmards                           dementia 
+                         "numeric"                          "numeric" 
+                          dialysis        solid_organ_transplantation 
+                         "numeric"                          "numeric" 
+                    chemo_or_radio      intel_dis_incl_downs_syndrome 
+                         "numeric"                          "numeric" 
+                       lung_cancer          cancer_excl_lung_and_haem 
+                         "numeric"                          "numeric" 
+             haematological_cancer             bone_marrow_transplant 
+                         "numeric"                          "numeric" 
+                   cystic_fibrosis                sickle_cell_disease 
+                         "numeric"                          "numeric" 
+       permanant_immunosuppression        temporary_immunosuppression 
+                         "numeric"                          "numeric" 
+           psychosis_schiz_bipolar                           asplenia 
+                         "numeric"                          "numeric" 
+                        patient_id 
+                         "integer" 
+[1] 0
+
+   0    1 
+9488  512 
+[1] "logical"
+
+FALSE  TRUE 
+ 7998     3 
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+      Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
+-0.0007128 -0.0005379 -0.0003796  0.0000000 -0.0002213  0.9998036 
+
+                 Estimate    Std. Error  t value Pr(>|t|)
+(Intercept)  0.0007128214  0.0008585222  0.83029  0.40640
+age         -0.0000083301  0.0000204829 -0.40669  0.68425
+
+Residual standard error: 0.0193623 on 7999 degrees of freedom
+
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pc_case_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-0.07480 -0.05942 -0.05062  0.00000 -0.04172  0.96608 
+
+                Estimate   Std. Error t value Pr(>|t|)
+(Intercept) 0.0334791110 0.0388667228 0.86138  0.38946
+age         0.0004396297 0.0009077775 0.48429  0.62840
+
+Residual standard error: 0.2226092 on 482 degrees of freedom
+
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(admitted_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-0.04699 -0.04292 -0.03921  0.00000 -0.03523  0.96913 
+
+                 Estimate    Std. Error  t value Pr(>|t|)
+(Intercept)  0.0469923001  0.0327170559  1.43632  0.15156
+age         -0.0001852716  0.0007622488 -0.24306  0.80806
+
+Residual standard error: 0.1947875 on 481 degrees of freedom
+
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(coviddeath_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-0.07959 -0.05834 -0.04596  0.00000 -0.02541  0.99234 
+
+                 Estimate    Std. Error  t value Pr(>|t|)
+(Intercept)  0.0795931077  0.0727183530  1.09454  0.27505
+age         -0.0009341914  0.0019225036 -0.48592  0.62756
+
+Residual standard error: 0.2097136 on 198 degrees of freedom
+
