@@ -13,7 +13,7 @@ actions:
 
   run_model:
     run: stata-mp:latest analysis/model.do
-    needs: [generate_study_population]
+    needs: [gen_std_popn]
     outputs:
       moderately_sensitive:
         log: logs/model.log
