@@ -16,5 +16,5 @@ actions:
     needs: [gen_std_popn]
     outputs:
       moderately_sensitive:
-        log: logs/model.log
+        log: logs/1-basic-rd.log
 
