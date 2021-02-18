@@ -10,7 +10,7 @@ from cohortextractor import (
 
 # Important Dates
 campaign_start = "2020-12-07" # the day before vaccines were rolled-out in England
-latest_date = "2021-01-13" # change this when more data become available - see https://github.com/opensafely/database-notebooks/blob/master/notebooks/database-builds.ipynb
+latest_date = "2021-02-01" # change this when more data become available - see https://github.com/opensafely/database-notebooks/blob/master/notebooks/database-builds.ipynb
 
 # Import Codelists
 from codelists import *
@@ -22,7 +22,7 @@ study = StudyDefinition(
     default_expectations={
         "date": {"earliest": "1970-01-01", "latest": latest_date},
         "rate": "uniform",
-        "incidence": 0.2,
+        "incidence": 0.8,
     },
         
     # set the index date to be the campaign start -- change if necessasry
@@ -52,7 +52,7 @@ study = StudyDefinition(
 
     # https://github.com/opensafely/risk-factors-research/issues/49
     age=patients.age_as_of(
-        "2020-02-01",
+        "2020-12-07",
         return_expectations={
             "rate": "universal",
             "int": {"distribution": "population_ages"},
@@ -504,7 +504,7 @@ study = StudyDefinition(
         returning="date",
         date_format="YYYY-MM-DD",
         return_expectations={
-            "date": {"earliest": "2021-01-01"},
+            "date": {"earliest": "2020-12-01"},
             "rate": "exponential_increase",
         },
     ),
@@ -520,7 +520,7 @@ study = StudyDefinition(
         date_format="YYYY-MM-DD",
         on_or_after="index_date + 1 day",
         return_expectations={
-            "date": {"earliest": "2021-04-01", "latest" : "2021-05-01"},
+            "date": {"earliest": "2020-12-01", "latest" : "2021-05-01"},
             "rate": "uniform",
             "incidence": 0.05,
         },
@@ -533,7 +533,7 @@ study = StudyDefinition(
         date_format="YYYY-MM-DD",
         find_first_match_in_period=True,
         return_expectations={
-            "date": {"earliest": "2021-05-01", "latest" : "2021-06-01"},
+            "date": {"earliest": "2020-12-01", "latest" : "2021-06-01"},
             "rate": "uniform",
             "incidence": 0.05,
         },
@@ -545,7 +545,7 @@ study = StudyDefinition(
         returning="date_of_death",
         date_format="YYYY-MM-DD",
         return_expectations={
-            "date": {"earliest": "2021-06-01", "latest" : "2021-08-01"},
+            "date": {"earliest": "2020-12-01", "latest" : "2021-08-01"},
             "rate": "uniform",
             "incidence": 0.02
         },
@@ -555,7 +555,7 @@ study = StudyDefinition(
         returning="date_of_death",
         date_format="YYYY-MM-DD",
         return_expectations={
-            "date": {"earliest": "2021-06-01", "latest" : "2021-08-01"},
+            "date": {"earliest": "2020-12-01", "latest" : "2021-08-01"},
             "rate": "uniform",
             "incidence": 0.02
         },
