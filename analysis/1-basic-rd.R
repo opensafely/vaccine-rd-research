@@ -85,6 +85,30 @@ cd_plot <- df_input %>%
   geom_point() + 
   theme_bw()
 
+ggsave(
+  plot = cd_plot,
+  filename = "cd_plot.png",
+  path = here::here("output", "plots"),
+  units = "cm",
+  height = 15,
+  width = 15
+)
+
+# save combined plot
+library(ggpubr)
+four_plot <- ggarrange(pt_plot, pc_plot, ad_plot, cd_plot)
+
+ggsave(
+  plot = four_plot,
+  filename = "four_plot.png",
+  path = here::here("output", "plots"),
+  units = "cm",
+  height = 15,
+  width = 15
+)
+
+four_plot
+
 # regression discontinuity analysis
 
 # install.packages("ivmodel")
