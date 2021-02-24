@@ -39,7 +39,7 @@ df_input <- df_input %>%
 class(df_input$pos_test_in_week)
 table(df_input$pos_test_in_week)
 
-df_input %>% 
+pt_plot <- df_input %>% 
   drop_na(age, pos_test_in_week) %>%
   filter(age >= 50) %>%
   ggplot(aes(x = age, y = pos_test_in_week)) + 
