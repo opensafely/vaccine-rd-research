@@ -1,7 +1,7 @@
 # log file
-zz <- file(here::here("logs","1-basic-rd.log"), open = "wt")
-sink(zz)
-sink(zz, type = "message")
+# zz <- file(here::here("logs","1-basic-rd.log"), open = "wt")
+# sink(zz)
+# sink(zz, type = "message")
 
 # load packages
 library('tidyverse')
