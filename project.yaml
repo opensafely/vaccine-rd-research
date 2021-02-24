@@ -20,8 +20,9 @@ actions:
         # figure2: output/plots/four_plot.png
         log: logs/1-basic-rd.log
 
-# generate_cohort_rd_by_week:
-#     run: cohortextractor:latest generate_cohort --study-definition study_definition_3_activity --index-date-range "2020-12-08 to 2021-02-01 by week" --output-dir=output/measures
-#     outputs:
-#       highly_sensitive:
-#         cohort: output/measures/input_3_activity_*.csv
+  # gen_std_popn_by_week:
+  #     run: cohortextractor:latest generate_cohort --study-definition study_definition_2 --index-date-range "2020-12-08 to 2021-02-01 by week" --output-dir=output/measures
+  #     outputs:
+  #       highly_sensitive:
+  #         cohort: output/measures/input_by_week_*.csv
+  #   
