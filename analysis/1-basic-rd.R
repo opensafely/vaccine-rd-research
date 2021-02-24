@@ -41,7 +41,7 @@ table(df_input$pos_test_in_week)
 
 pt_plot <- df_input %>% 
   drop_na(age, pos_test_in_week) %>%
-  filter(age >= 50) %>%
+  filter(age >= 18) %>%
   ggplot(aes(x = age, y = pos_test_in_week)) + 
   geom_point() + 
   theme_bw()
@@ -54,7 +54,7 @@ df_input <- df_input %>%
 
 df_input %>% 
   drop_na(age, pc_case_in_week) %>%
-  filter(age >= 50) %>%
+  filter(age >= 18) %>%
   ggplot(aes(x = age, y = pc_case_in_week)) + 
   geom_point() + 
   theme_bw()
@@ -67,7 +67,7 @@ df_input <- df_input %>%
 
 df_input %>% 
   drop_na(age, admitted_in_week) %>%
-  filter(age >= 50) %>%
+  filter(age >= 18) %>%
   ggplot(aes(x = age, y = admitted_in_week)) + 
   geom_point() + 
   theme_bw()
@@ -80,7 +80,7 @@ df_input <- df_input %>%
 
 df_input %>% 
   drop_na(age, coviddeath_in_week) %>%
-  filter(age >= 50) %>%
+  filter(age >= 18) %>%
   ggplot(aes(x = age, y = coviddeath_in_week)) + 
   geom_point() + 
   theme_bw()
