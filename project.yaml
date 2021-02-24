@@ -12,7 +12,7 @@ actions:
         cohort: output/input.csv
 
   run_model:
-    run: r:latest analysis/1-basic-rd.R
+    run: r:latest analysis/1-rcmdbatch.R # 1-basic-rd.R
     needs: [gen_std_popn]
     outputs:
       moderately_sensitive:
