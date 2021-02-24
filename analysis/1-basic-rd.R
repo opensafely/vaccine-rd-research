@@ -46,15 +46,6 @@ df_input %>%
   geom_point() + 
   theme_bw()
 
-# ggsave(
-#   plot= plot_stppop_map,
-#   filename="plot_stppop_map.png", 
-#   path=here::here("output", "plots"),
-#   units = "cm",
-#   height = 10,
-#   width = 10
-# )
-
 # primary care covid case in week
 
 df_input <- df_input %>%
