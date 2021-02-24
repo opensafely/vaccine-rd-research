@@ -52,7 +52,7 @@ df_input <- df_input %>%
   mutate(pc_case_in_week = primary_care_covid_case_1_date > startweek & 
            primary_care_covid_case_1_date <= endweek)
 
-df_input %>% 
+pc_plot <- df_input %>% 
   drop_na(age, pc_case_in_week) %>%
   filter(age >= 18) %>%
   ggplot(aes(x = age, y = pc_case_in_week)) + 
@@ -65,7 +65,7 @@ df_input <- df_input %>%
   mutate(admitted_in_week = admitted_1_date > startweek &
            admitted_1_date <= endweek)
 
-df_input %>% 
+ad_plot <- df_input %>% 
   drop_na(age, admitted_in_week) %>%
   filter(age >= 18) %>%
   ggplot(aes(x = age, y = admitted_in_week)) + 
@@ -78,7 +78,7 @@ df_input <- df_input %>%
   mutate(coviddeath_in_week = coviddeath_date > startweek &
            coviddeath_date <= endweek)
 
-df_input %>% 
+cd_plot <- df_input %>% 
   drop_na(age, coviddeath_in_week) %>%
   filter(age >= 18) %>%
   ggplot(aes(x = age, y = coviddeath_in_week)) + 
