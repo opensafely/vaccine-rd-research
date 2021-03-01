@@ -500,6 +500,7 @@ study = StudyDefinition(
         pathogen="SARS-CoV-2",
         test_result="positive",
         on_or_after="index_date + 1 day",
+        #between = {"",""}
         find_first_match_in_period=True,
         returning="date",
         date_format="YYYY-MM-DD",
