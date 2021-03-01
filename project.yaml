@@ -19,9 +19,12 @@ actions:
   #       figure1: output/plots/pt_plot.png
   #       # figure2: output/plots/four_plot.png
   #       log: logs/1-basic-rd.log
+
+  gen_std_popn_2:
+    run: cohortextractor:latest generate_cohort --study-definition study_definition_2
     outputs:
       highly_sensitive:
-        cohort: output/input.csv
+        cohort: output/input_2.csv
 
   run_model:
     run: r:latest analysis/1-rcmdbatch.R # 1-basic-rd.R
