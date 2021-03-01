@@ -1,0 +1,318 @@
+
+R version 4.0.2 (2020-06-22) -- "Taking Off Again"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # load packages
+> library('tidyverse')
+-- Attaching packages --------------------------------------- tidyverse 1.3.0 --
+v ggplot2 3.3.2     v purrr   0.3.4
+v tibble  3.0.3     v dplyr   1.0.2
+v tidyr   1.1.2     v stringr 1.4.0
+v readr   1.3.1     v forcats 0.5.0
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+> 
+> # tsls() taken from sem package from CRAN mirror
+> # here https://github.com/cran/sem/blob/master/R/tsls.R
+> source(here::here("analysis","tsls.R")) 
+> 
+> ## import data
+> df_input <- read_csv(
++   here::here("output", "input_2.csv"),
++   col_types = cols(
++     patient_id = col_integer(),
++     stp = col_character()
++   )
++ )
+> 
+> dim(df_input)
+[1] 10000    33
+> class(df_input)
+[1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame" 
+> colnames(df_input)
+ [1] "covid_vax_1_date"                   "covid_vax_2_date"                  
+ [3] "covid_vax_3_date"                   "covid_vax_4_date"                  
+ [5] "covid_vax_pfizer_1_date"            "covid_vax_pfizer_2_date"           
+ [7] "covid_vax_pfizer_3_date"            "covid_vax_pfizer_4_date"           
+ [9] "covid_vax_az_1_date"                "covid_vax_az_2_date"               
+[11] "covid_vax_az_3_date"                "covid_vax_az_4_date"               
+[13] "prior_positive_test_date"           "prior_primary_care_covid_case_date"
+[15] "prior_admitted_for_covid_date"      "positive_test_1_date"              
+[17] "primary_care_covid_case_1_date"     "admitted_1_date"                   
+[19] "coviddeath_date"                    "death_date"                        
+[21] "age"                                "sex"                               
+[23] "bmi"                                "has_follow_up_previous_year"       
+[25] "ethnicity_16"                       "ethnicity"                         
+[27] "practice_id"                        "stp"                               
+[29] "region"                             "imd"                               
+[31] "care_home_type"                     "care_home"                         
+[33] "patient_id"                        
+> sapply(df_input, class)
+                  covid_vax_1_date                   covid_vax_2_date 
+                            "Date"                             "Date" 
+                  covid_vax_3_date                   covid_vax_4_date 
+                            "Date"                             "Date" 
+           covid_vax_pfizer_1_date            covid_vax_pfizer_2_date 
+                            "Date"                             "Date" 
+           covid_vax_pfizer_3_date            covid_vax_pfizer_4_date 
+                            "Date"                             "Date" 
+               covid_vax_az_1_date                covid_vax_az_2_date 
+                            "Date"                             "Date" 
+               covid_vax_az_3_date                covid_vax_az_4_date 
+                            "Date"                             "Date" 
+          prior_positive_test_date prior_primary_care_covid_case_date 
+                            "Date"                             "Date" 
+     prior_admitted_for_covid_date               positive_test_1_date 
+                            "Date"                             "Date" 
+    primary_care_covid_case_1_date                    admitted_1_date 
+                            "Date"                             "Date" 
+                   coviddeath_date                         death_date 
+                            "Date"                             "Date" 
+                               age                                sex 
+                         "numeric"                        "character" 
+                               bmi        has_follow_up_previous_year 
+                       "character"                          "numeric" 
+                      ethnicity_16                          ethnicity 
+                         "numeric"                          "numeric" 
+                       practice_id                                stp 
+                         "numeric"                        "character" 
+                            region                                imd 
+                       "character"                          "numeric" 
+                    care_home_type                          care_home 
+                       "character"                          "numeric" 
+                        patient_id 
+                         "integer" 
+> 
+> # greater than or equal to 80 indicator
+> df_input <- df_input %>% mutate(gr80 = as.numeric(age >= 80))
+> sum(is.na(df_input$gr80))
+[1] 0
+> table(df_input$gr80)
+
+   0    1 
+9519  481 
+> 
+> # setup week start and end dates
+> startweek <- c("2020-12-07","2020-12-14","2020-12-21","2020-12-28","2021-01-04","2021-01-11","2021-01-18","2021-01-25")
+> endweek   <- c("2020-12-14","2020-12-21","2020-12-28","2021-01-04","2021-01-11","2021-01-18","2021-01-25","2021-02-01")
+> 
+> # initialise lists for results and plots
+> results <- pt_plot <- vector("list", length(startweek))
+> 
+> for (i in 1:length(startweek)) {
++   
++   # print iteration
++   print(paste("Week", i))
++   print(paste("Start date", startweek[i]))
++   
++   # positive test in week
++   df_input <- df_input %>% 
++     mutate(pos_test_in_week = positive_test_1_date > startweek[i] &
++              positive_test_1_date <= endweek[i])
++ 
++   class(df_input$pos_test_in_week)
++   table(df_input$pos_test_in_week)
++ 
++   pt_plot[[i]] <- df_input %>% 
++     drop_na(age, pos_test_in_week) %>%
++     filter(age >= 18) %>%
++     ggplot(aes(x = age, y = pos_test_in_week)) + 
++     geom_point() + 
++     theme_bw()
++ 
++   # save plots
++   ggsave(
++     plot = pt_plot[[i]],
++     filename = paste0("pt_plot_week_", i, ".png"),
++     path = here::here("output", "plots"),
++     units = "cm",
++     height = 15,
++     width = 15
++   )
++ 
++   # fit IV estimator
++   ivfit <- tsls(as.numeric(pos_test_in_week) ~ age, ~ gr80, 
++                 data = df_input)
++   results[[i]] <- ivfit
++   print(summary(ivfit))
++ }
+[1] "Week 1"
+[1] "Start date 2020-12-07"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+      Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
+-0.0002381 -0.0001794 -0.0001264  0.0000000 -0.0000761  0.9997982 
+
+                 Estimate    Std. Error  t value Pr(>|t|)
+(Intercept)  2.380801e-04  5.223532e-04  0.45578  0.64856
+age         -2.792534e-06  1.252318e-05 -0.22299  0.82355
+
+Residual standard error: 0.0111797 on 7999 degrees of freedom
+
+[1] "Week 2"
+[1] "Start date 2020-12-14"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+      Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
+-0.0014285 -0.0010766 -0.0007583  0.0000000 -0.0004567  0.9995266 
+
+                 Estimate    Std. Error  t value Pr(>|t|)
+(Intercept)  1.428480e-03  1.279068e-03  1.11681  0.26411
+age         -1.675520e-05  3.066506e-05 -0.54639  0.58481
+
+Residual standard error: 0.0273753 on 7999 degrees of freedom
+
+[1] "Week 3"
+[1] "Start date 2020-12-21"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-0.002737 -0.002478 -0.002372  0.000000 -0.002260  0.997829 
+
+                Estimate   Std. Error t value Pr(>|t|)
+(Intercept) 2.135979e-03 2.274391e-03 0.93914  0.34769
+age         5.894530e-06 5.452748e-05 0.10810  0.91392
+
+Residual standard error: 0.0486777 on 7999 degrees of freedom
+
+[1] "Week 4"
+[1] "Start date 2020-12-28"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-0.009034 -0.008064 -0.007227  0.000000 -0.006434  0.994668 
+
+                 Estimate    Std. Error  t value Pr(>|t|)  
+(Intercept)  9.033559e-03  3.964045e-03  2.27887 0.022701 *
+age         -4.406161e-05  9.503615e-05 -0.46363 0.642925  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.0848405 on 7999 degrees of freedom
+
+[1] "Week 5"
+[1] "Start date 2021-01-04"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-0.02784 -0.02402 -0.02237  0.00000 -0.02072  0.98102 
+
+                Estimate   Std. Error t value  Pr(>|t|)   
+(Intercept) 1.897899e-02 6.930144e-03 2.73861 0.0061835 **
+age         8.687064e-05 1.661470e-04 0.52285 0.6010903   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1483225 on 7999 degrees of freedom
+
+[1] "Week 6"
+[1] "Start date 2021-01-11"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-0.07481 -0.07385 -0.07297  0.00000 -0.07213  0.92892 
+
+                 Estimate    Std. Error  t value   Pr(>|t|)    
+(Intercept)  7.481319e-02  1.216445e-02  6.15015 8.1128e-10 ***
+age         -4.191011e-05  2.916372e-04 -0.14371    0.88574    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.26035 on 7999 degrees of freedom
+
+[1] "Week 7"
+[1] "Start date 2021-01-18"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-0.2228 -0.2174 -0.2126  0.0000 -0.2069  0.7967 
+
+                 Estimate    Std. Error  t value Pr(>|t|)    
+(Intercept)  0.2227932384  0.0191854318 11.61263  < 2e-16 ***
+age         -0.0001992646  0.0004599619 -0.43322  0.66487    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4106166 on 7999 degrees of freedom
+
+[1] "Week 8"
+[1] "Start date 2021-01-25"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-0.6914 -0.6744  0.3171  0.0000  0.3228  0.3294 
+
+                Estimate   Std. Error  t value Pr(>|t|)    
+(Intercept) 0.6705784856 0.0218087179 30.74818  < 2e-16 ***
+age         0.0002120189 0.0005228540  0.40550  0.68512    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4667615 on 7999 degrees of freedom
+
+> 
+> proc.time()
+   user  system elapsed 
+  3.584   0.091   3.923 
