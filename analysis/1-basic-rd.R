@@ -85,29 +85,31 @@ cd_plot <- df_input %>%
   geom_point() + 
   theme_bw()
 
+# save plot/s
+
 ggsave(
-  plot = cd_plot,
-  filename = "cd_plot.png",
+  plot = pt_plot,
+  filename = "pt_plot.png",
   path = here::here("output", "plots"),
   units = "cm",
   height = 15,
   width = 15
 )
 
-# save combined plot
-library(ggpubr)
-four_plot <- ggarrange(pt_plot, pc_plot, ad_plot, cd_plot)
-
-ggsave(
-  plot = four_plot,
-  filename = "four_plot.png",
-  path = here::here("output", "plots"),
-  units = "cm",
-  height = 15,
-  width = 15
-)
-
-four_plot
+# # save combined plot
+# library(ggpubr)
+# four_plot <- ggarrange(pt_plot, pc_plot, ad_plot, cd_plot)
+# 
+# ggsave(
+#   plot = four_plot,
+#   filename = "four_plot.png",
+#   path = here::here("output", "plots"),
+#   units = "cm",
+#   height = 15,
+#   width = 15
+# )
+# 
+# four_plot
 
 # regression discontinuity analysis
 
@@ -140,14 +142,14 @@ ivfit1 <- tsls(as.numeric(pos_test_in_week) ~ age, ~ gr80,
                data = df_input)
 summary(ivfit1)
 
-ivfit2 <- tsls(as.numeric(pc_case_in_week) ~ age, ~ gr80,
-               data = df_input)
-summary(ivfit2)
-
-ivfit3 <- tsls(as.numeric(admitted_in_week) ~ age, ~ gr80,
-               data = df_input)
-summary(ivfit3)
-
-ivfit4 <- tsls(as.numeric(coviddeath_in_week) ~ age, ~ gr80,
-               data = df_input)
-summary(ivfit4)
+# ivfit2 <- tsls(as.numeric(pc_case_in_week) ~ age, ~ gr80,
+#                data = df_input)
+# summary(ivfit2)
+# 
+# ivfit3 <- tsls(as.numeric(admitted_in_week) ~ age, ~ gr80,
+#                data = df_input)
+# summary(ivfit3)
+# 
+# ivfit4 <- tsls(as.numeric(coviddeath_in_week) ~ age, ~ gr80,
+#                data = df_input)
+# summary(ivfit4)
