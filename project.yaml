@@ -5,8 +5,20 @@ expectations:
 
 actions:
 
-  gen_std_popn:
-    run: cohortextractor:latest generate_cohort --study-definition study_definition
+  # gen_std_popn:
+  #   run: cohortextractor:latest generate_cohort --study-definition study_definition
+  #   outputs:
+  #     highly_sensitive:
+  #       cohort: output/input.csv
+
+  # run_model:
+  #   run: r:latest analysis/1-rcmdbatch.R # 1-basic-rd.R
+  #   needs: [gen_std_popn]
+  #   outputs:
+  #     moderately_sensitive:
+  #       figure1: output/plots/pt_plot.png
+  #       # figure2: output/plots/four_plot.png
+  #       log: logs/1-basic-rd.log
     outputs:
       highly_sensitive:
         cohort: output/input.csv
