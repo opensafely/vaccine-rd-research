@@ -564,17 +564,11 @@ study = StudyDefinition(
 )
 
 # covid outcome measures by gr80 group
-measures = [
-    Measure(
-        id = "hosp_admission_by_stp",
-        numerator = "admitted",
-        denominator = "population",
-        group_by = ["stp"],
-    ),
-    Measure(
-        id = "death_by_stp",
-        numerator = "died",
-        denominator =" population",
-        group_by = ["stp"],
-    ),
-]
+# measures = [
+#     Measure(
+#         id = "sgss_positive_in_week",
+#         numerator = "admitted",
+#         denominator = "population",
+#         group_by = ["stp"],
+#     ),
+# ]
