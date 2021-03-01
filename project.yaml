@@ -31,9 +31,16 @@ actions:
     needs: [gen_std_popn_2]
     outputs:
       moderately_sensitive:
-        figure1: output/plots/cd_plot.png
-        # figure2: output/plots/four_plot.png
-        log: logs/1-basic-rd.log
+        figure1: output/plots/pt_plot_week_1.png
+        figure2: output/plots/pt_plot_week_2.png
+        figure3: output/plots/pt_plot_week_3.png
+        figure4: output/plots/pt_plot_week_4.png
+        figure5: output/plots/pt_plot_week_5.png
+        figure6: output/plots/pt_plot_week_6.png
+        figure7: output/plots/pt_plot_week_7.png
+        figure8: output/plots/pt_plot_week_8.png        
+        log: logs/2-basic-rd.log
+
 
   # gen_std_popn_by_week:
   #     run: cohortextractor:latest generate_cohort --study-definition study_definition_2 --index-date-range "2020-12-08 to 2021-02-01 by week" --output-dir=output/measures
