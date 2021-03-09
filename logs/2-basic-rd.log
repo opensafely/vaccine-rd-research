@@ -160,14 +160,14 @@ Model Formula: as.numeric(pos_test_in_week) ~ age
 Instruments: ~gr80
 
 Residuals:
-      Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
--0.0002381 -0.0001794 -0.0001264  0.0000000 -0.0000761  0.9997982 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0       0       0       0       0 
 
-                 Estimate    Std. Error  t value Pr(>|t|)
-(Intercept)  2.380801e-04  5.223532e-04  0.45578  0.64856
-age         -2.792534e-06  1.252318e-05 -0.22299  0.82355
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)        0          0      NA       NA
+age                0          0      NA       NA
 
-Residual standard error: 0.0111797 on 7999 degrees of freedom
+Residual standard error: 0 on 7999 degrees of freedom
 
 [1] "Week 2"
 [1] "Start date 2020-12-14"
@@ -180,13 +180,13 @@ Instruments: ~gr80
 
 Residuals:
       Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
--0.0014285 -0.0010766 -0.0007583  0.0000000 -0.0004567  0.9995266 
+-0.0007089 -0.0005353 -0.0003782  0.0000000 -0.0002211  0.9999029 
 
                  Estimate    Std. Error  t value Pr(>|t|)
-(Intercept)  1.428480e-03  1.279068e-03  1.11681  0.26411
-age         -1.675520e-05  3.066506e-05 -0.54639  0.58481
+(Intercept)  7.089096e-04  8.788573e-04  0.80663  0.41991
+age         -8.268280e-06  2.108878e-05 -0.39207  0.69502
 
-Residual standard error: 0.0273753 on 7999 degrees of freedom
+Residual standard error: 0.0193641 on 7999 degrees of freedom
 
 [1] "Week 3"
 [1] "Start date 2020-12-21"
@@ -199,13 +199,13 @@ Instruments: ~gr80
 
 Residuals:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
--0.002737 -0.002478 -0.002372  0.000000 -0.002260  0.997829 
+-0.003151 -0.003007 -0.002877  0.000000 -0.002740  0.997417 
 
-                Estimate   Std. Error t value Pr(>|t|)
-(Intercept) 2.135979e-03 2.274391e-03 0.93914  0.34769
-age         5.894530e-06 5.452748e-05 0.10810  0.91392
+                 Estimate    Std. Error  t value Pr(>|t|)
+(Intercept)  3.151225e-03  2.430316e-03  1.29663  0.19480
+age         -6.847832e-06  5.831711e-05 -0.11742  0.90653
 
-Residual standard error: 0.0486777 on 7999 degrees of freedom
+Residual standard error: 0.0535478 on 7999 degrees of freedom
 
 [1] "Week 4"
 [1] "Start date 2020-12-28"
@@ -218,15 +218,15 @@ Instruments: ~gr80
 
 Residuals:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
--0.009034 -0.008064 -0.007227  0.000000 -0.006434  0.994668 
+-0.010517 -0.009957 -0.009733  0.000000 -0.009520  0.990681 
 
-                 Estimate    Std. Error  t value Pr(>|t|)  
-(Intercept)  9.033559e-03  3.964045e-03  2.27887 0.022701 *
-age         -4.406161e-05  9.503615e-05 -0.46363 0.642925  
+                Estimate   Std. Error t value Pr(>|t|)  
+(Intercept) 9.296656e-03 4.459902e-03  2.0845 0.037147 *
+age         1.119398e-05 1.070184e-04  0.1046 0.916697  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.0848405 on 7999 degrees of freedom
+Residual standard error: 0.0982661 on 7999 degrees of freedom
 
 [1] "Week 5"
 [1] "Start date 2021-01-04"
@@ -239,15 +239,15 @@ Instruments: ~gr80
 
 Residuals:
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
--0.02784 -0.02402 -0.02237  0.00000 -0.02072  0.98102 
+-0.02789 -0.02305 -0.02111  0.00000 -0.01917  0.98267 
 
                 Estimate   Std. Error t value  Pr(>|t|)   
-(Intercept) 1.897899e-02 6.930144e-03 2.73861 0.0061835 **
-age         8.687064e-05 1.661470e-04 0.52285 0.6010903   
+(Intercept) 1.733406e-02 6.545414e-03 2.64828 0.0081062 **
+age         9.688728e-05 1.570617e-04 0.61687 0.5373354   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.1483225 on 7999 degrees of freedom
+Residual standard error: 0.1442167 on 7999 degrees of freedom
 
 [1] "Week 6"
 [1] "Start date 2021-01-11"
@@ -260,15 +260,15 @@ Instruments: ~gr80
 
 Residuals:
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
--0.07481 -0.07385 -0.07297  0.00000 -0.07213  0.92892 
+-0.07512 -0.07345 -0.07275  0.00000 -0.07206  0.92846 
 
-                 Estimate    Std. Error  t value   Pr(>|t|)    
-(Intercept)  7.481319e-02  1.216445e-02  6.15015 8.1128e-10 ***
-age         -4.191011e-05  2.916372e-04 -0.14371    0.88574    
+                Estimate   Std. Error t value   Pr(>|t|)    
+(Intercept) 7.153606e-02 1.179862e-02 6.06309 1.3959e-09 ***
+age         3.292471e-05 2.831160e-04 0.11629    0.90742    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.26035 on 7999 degrees of freedom
+Residual standard error: 0.2599619 on 7999 degrees of freedom
 
 [1] "Week 7"
 [1] "Start date 2021-01-18"
@@ -281,15 +281,15 @@ Instruments: ~gr80
 
 Residuals:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
--0.2228 -0.2174 -0.2126  0.0000 -0.2069  0.7967 
+-0.2268 -0.2226 -0.2185  0.0000 -0.2134  0.7893 
 
                  Estimate    Std. Error  t value Pr(>|t|)    
-(Intercept)  0.2227932384  0.0191854318 11.61263  < 2e-16 ***
-age         -0.0001992646  0.0004599619 -0.43322  0.66487    
+(Intercept)  0.2268151149  0.0188095497 12.05851  < 2e-16 ***
+age         -0.0001632243  0.0004513480 -0.36164  0.71763    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.4106166 on 7999 degrees of freedom
+Residual standard error: 0.4144355 on 7999 degrees of freedom
 
 [1] "Week 8"
 [1] "Start date 2021-01-25"
@@ -302,17 +302,17 @@ Instruments: ~gr80
 
 Residuals:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
--0.6914 -0.6744  0.3171  0.0000  0.3228  0.3294 
+-0.6749 -0.6717  0.3267  0.0000  0.3279  0.3291 
 
                 Estimate   Std. Error  t value Pr(>|t|)    
-(Intercept) 0.6705784856 0.0218087179 30.74818  < 2e-16 ***
-age         0.0002120189 0.0005228540  0.40550  0.68512    
+(Intercept) 6.709217e-01 2.130126e-02 31.49680  < 2e-16 ***
+age         4.009056e-05 5.111384e-04  0.07843  0.93748    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.4667615 on 7999 degrees of freedom
+Residual standard error: 0.469336 on 7999 degrees of freedom
 
 > 
 > proc.time()
    user  system elapsed 
-  3.584   0.091   3.923 
+  3.159   0.080   3.464 
