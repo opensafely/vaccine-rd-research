@@ -52,7 +52,7 @@ study = StudyDefinition(
 
     # https://github.com/opensafely/risk-factors-research/issues/49
     age=patients.age_as_of(
-        "2020-12-07",
+        "2021-03-31",
         return_expectations={
             "rate": "universal",
             "int": {"distribution": "population_ages"},
