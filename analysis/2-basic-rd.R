@@ -56,7 +56,7 @@ for (i in 1:length(startweek)) {
   ggsave(
     plot = pt_plot[[i]],
     filename = paste0("pt_plot_week_", i, ".png"),
-    path = here::here("output", "plots"),
+    path = here::here("output"),
     units = "cm",
     height = 15,
     width = 15

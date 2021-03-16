@@ -104,7 +104,7 @@ x dplyr::lag()    masks stats::lag()
 > table(df_input$gr80)
 
    0    1 
-9509  491 
+9479  521 
 > 
 > # setup week start and end dates
 > startweek <- c("2020-12-07","2020-12-14","2020-12-21","2020-12-28","2021-01-04","2021-01-11","2021-01-18","2021-01-25")
@@ -138,7 +138,7 @@ x dplyr::lag()    masks stats::lag()
 +   ggsave(
 +     plot = pt_plot[[i]],
 +     filename = paste0("pt_plot_week_", i, ".png"),
-+     path = here::here("output", "plots"),
++     path = here::here("output"),
 +     units = "cm",
 +     height = 15,
 +     width = 15
@@ -152,16 +152,169 @@ x dplyr::lag()    masks stats::lag()
 + }
 [1] "Week 1"
 [1] "Start date 2020-12-07"
-Error in grid.newpage() : 
-  could not open file '/workspace/output/plots/pt_plot_week_1.png'
-Calls: ggsave ... grid.draw.ggplot -> print -> print.ggplot -> grid.newpage
-Backtrace:
-1: grid.newpage()
-2: print.ggplot(x)
-3: print(x)
-4: grid.draw.ggplot(plot)
-5: grid.draw(plot)
-6: ggsave(plot = pt_plot[[i]], filename = paste0("pt_plot_week_", 
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+      Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
+-0.0002350 -0.0001802 -0.0001280  0.0000000 -0.0000732  0.9998006 
+
+                 Estimate    Std. Error  t value Pr(>|t|)
+(Intercept)  2.350380e-04  4.868485e-04  0.48277  0.62927
+age         -2.743377e-06  1.172925e-05 -0.23389  0.81507
+
+Residual standard error: 0.0111797 on 7999 degrees of freedom
+
+[1] "Week 2"
+[1] "Start date 2020-12-14"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0       0       0       0       0 
+
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)        0          0      NA       NA
+age                0          0      NA       NA
+
+Residual standard error: 0 on 7999 degrees of freedom
+
+[1] "Week 3"
+[1] "Start date 2020-12-21"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+      Min.    1st Qu.     Median       Mean    3rd Qu.       Max. 
+-0.0030555 -0.0023422 -0.0016646  0.0000000 -0.0009513  0.9997263 
+
+                 Estimate    Std. Error  t value Pr(>|t|)  
+(Intercept)  3.055494e-03  1.754783e-03  1.74124  0.08168 .
+age         -3.566390e-05  4.227656e-05 -0.84359  0.39893  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.0402958 on 7999 degrees of freedom
+
+[1] "Week 4"
+[1] "Start date 2020-12-28"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-0.010322 -0.009600 -0.008878  0.000000 -0.008192  0.992891 
+
+                 Estimate    Std. Error  t value Pr(>|t|)  
+(Intercept)  1.032236e-02  4.084709e-03  2.52707 0.011521 *
+age         -3.610681e-05  9.840961e-05 -0.36690 0.713701  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.0937989 on 7999 degrees of freedom
+
+[1] "Week 5"
+[1] "Start date 2021-01-04"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-0.02345 -0.02243 -0.02150  0.00000 -0.02053  0.98098 
+
+                 Estimate    Std. Error  t value  Pr(>|t|)    
+(Intercept)  2.345229e-02  6.317497e-03  3.71228 0.0002068 ***
+age         -4.873295e-05  1.522024e-04 -0.32019 0.7488363    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1450713 on 7999 degrees of freedom
+
+[1] "Week 6"
+[1] "Start date 2021-01-11"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-0.10967 -0.07765 -0.06458  0.00000 -0.05021  0.95960 
+
+                Estimate   Std. Error t value   Pr(>|t|)    
+(Intercept) 0.0404040247 0.0108750755 3.71529 0.00020436 ***
+age         0.0006534195 0.0002620044 2.49393 0.01265395 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2497288 on 7999 degrees of freedom
+
+[1] "Week 7"
+[1] "Start date 2021-01-18"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-0.2317 -0.2235 -0.2157  0.0000 -0.2060  0.7984 
+
+                 Estimate    Std. Error  t value Pr(>|t|)    
+(Intercept)  0.2316702432  0.0180137644 12.86073  < 2e-16 ***
+age         -0.0003134060  0.0004339911 -0.72215  0.47022    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4136574 on 7999 degrees of freedom
+
+[1] "Week 8"
+[1] "Start date 2021-01-25"
+
+ 2SLS Estimates
+
+Model Formula: as.numeric(pos_test_in_week) ~ age
+
+Instruments: ~gr80
+
+Residuals:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-0.6909 -0.6774  0.3139  0.0000  0.3200  0.3321 
+
+                 Estimate    Std. Error  t value Pr(>|t|)    
+(Intercept)  0.6908605557  0.0202815935 34.06343  < 2e-16 ***
+age         -0.0002167664  0.0004886281 -0.44362  0.65733    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4657345 on 7999 degrees of freedom
+
+> 
 > proc.time()
    user  system elapsed 
-  2.202   0.288   2.943 
+  6.444   0.233   6.711 
