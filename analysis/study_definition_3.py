@@ -13,7 +13,7 @@ from cohortextractor import (
 
 # Important Dates
 campaign_start = "2020-12-07" # the day before vaccines were rolled-out in England
-latest_date = "2021-03-15" # "2020-12-14" # change this when more data become available - see https://github.com/opensafely/database-notebooks/blob/master/notebooks/database-builds.ipynb
+latest_date = "2021-03-01" # "2020-12-14" # change this when more data become available - see https://github.com/opensafely/database-notebooks/blob/master/notebooks/database-builds.ipynb
 
 # Import Codelists
 from codelists import *
