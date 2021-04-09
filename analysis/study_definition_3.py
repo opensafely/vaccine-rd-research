@@ -282,7 +282,7 @@ study = StudyDefinition(
     ),
 
     # simple care home flag
-    care_home=patients.satisfying(
+    care_home_tpp=patients.satisfying(
         """care_home_type""",
         return_expectations={
             "rate": "universal",
