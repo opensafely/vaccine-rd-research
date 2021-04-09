@@ -56,8 +56,9 @@ table(df_input$care_home_tpp, useNA = "ifany")
 
 class(df_input$care_home_primis)
 table(df_input$care_home_primis, useNA = "ifany")
+
 df_input <- df_input %>%
-  filter(care_home == 0)
+  filter(care_home_tpp == FALSE)
 
 # setup week start and end dates
 startweek <- c("2020-12-07","2020-12-14","2020-12-21","2020-12-28","2021-01-04","2021-01-11","2021-01-18","2021-01-25")
