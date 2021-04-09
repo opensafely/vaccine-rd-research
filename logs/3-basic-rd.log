@@ -46,7 +46,7 @@ x dplyr::lag()    masks stats::lag()
 +     rural_urban = col_integer(),
 +     care_home_type = col_character(),
 +     care_home_tpp = col_logical(),
-+     care_home_primis = col_logical(),
++     # care_home_primis = col_logical(),
 +     stp = col_character(),
 + 
 +     registered_at_latest = col_logical(),
@@ -62,7 +62,7 @@ x dplyr::lag()    masks stats::lag()
 + )
 > 
 > dim(df_input)
-[1] 10000    36
+[1] 10000    35
 > class(df_input)
 [1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame" 
 > colnames(df_input)
@@ -83,7 +83,7 @@ x dplyr::lag()    masks stats::lag()
 [29] "stp"                                "region"                            
 [31] "imd"                                "rural_urban"                       
 [33] "care_home_type"                     "care_home_tpp"                     
-[35] "care_home_primis"                   "patient_id"                        
+[35] "patient_id"                        
 > sapply(df_input, class)
                   covid_vax_1_date                   covid_vax_2_date 
                             "Date"                             "Date" 
@@ -119,8 +119,8 @@ x dplyr::lag()    masks stats::lag()
                        "character"                          "integer" 
                     care_home_type                      care_home_tpp 
                        "character"                          "logical" 
-                  care_home_primis                         patient_id 
-                         "logical"                          "integer" 
+                        patient_id 
+                         "integer" 
 > 
 > # greater than or equal to 80 indicator
 > df_input <- df_input %>% 
@@ -147,12 +147,8 @@ x dplyr::lag()    masks stats::lag()
 FALSE  TRUE 
  9000  1000 
 > 
-> class(df_input$care_home_primis)
-[1] "logical"
-> table(df_input$care_home_primis, useNA = "ifany")
-
-FALSE  TRUE 
- 9000  1000 
+> # class(df_input$care_home_primis)
+> # table(df_input$care_home_primis, useNA = "ifany")
 > 
 > df_input <- df_input %>%
 +   filter(care_home_tpp == FALSE)
@@ -463,4 +459,4 @@ age         -9.616687e-06 -0.001194399 0.001175165
 > 
 > proc.time()
    user  system elapsed 
-  1.077   0.061   1.137 
+  1.086   0.050   1.135 
