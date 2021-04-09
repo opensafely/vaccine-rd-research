@@ -51,22 +51,22 @@ for (i in 1:length(startweek)) {
   class(df_input$pos_test_in_week)
   table(df_input$pos_test_in_week)
   
-  pt_plot[[i]] <- df_input %>% 
-    drop_na(age, pos_test_in_week) %>%
-    filter(age >= 18) %>%
-    ggplot(aes(x = age, y = pos_test_in_week)) + 
-    geom_point() + 
-    theme_bw()
-  
-  # save plots
-  ggsave(
-    plot = pt_plot[[i]],
-    filename = paste0("pt_plot_week_", i, ".png"),
-    path = here::here("output"),
-    units = "cm",
-    height = 15,
-    width = 15
-  )
+  # pt_plot[[i]] <- df_input %>% 
+  #   drop_na(age, pos_test_in_week) %>%
+  #   filter(age >= 18) %>%
+  #   ggplot(aes(x = age, y = pos_test_in_week)) + 
+  #   geom_point() + 
+  #   theme_bw()
+  # 
+  # # save plots
+  # ggsave(
+  #   plot = pt_plot[[i]],
+  #   filename = paste0("pt_plot_week_", i, ".png"),
+  #   path = here::here("output"),
+  #   units = "cm",
+  #   height = 15,
+  #   width = 15
+  # )
   
   # fit IV estimator
   ivfit <- tsls(as.numeric(pos_test_in_week) ~ age, ~ gr80, 
