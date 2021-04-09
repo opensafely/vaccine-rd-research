@@ -45,10 +45,17 @@ sapply(df_input, class)
 df_input <- df_input %>% 
   mutate(gr80 = as.numeric(age >= 80))
 sum(is.na(df_input$gr80))
-table(df_input$gr80)
+table(df_input$gr80, useNA = "ifany")
 
 # non-care home residents
-table(df_input$care_home)
+class(df_input$care_home_type)
+table(df_input$care_home_type, useNA = "ifany")
+
+class(df_input$care_home_tpp)
+table(df_input$care_home_tpp, useNA = "ifany")
+
+class(df_input$care_home_primis)
+table(df_input$care_home_primis, useNA = "ifany")
 df_input <- df_input %>%
   filter(care_home == 0)
 
