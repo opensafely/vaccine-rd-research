@@ -276,8 +276,8 @@ study = StudyDefinition(
             "": "DEFAULT",  # use empty string to define non-carehome
         },
         return_expectations={
-            "rate": "universal",
             "category": {"ratios": {"Carehome": 0.05, "Nursinghome": 0.05, "Mixed": 0.05, "": 0.85, }, },
+            "incidence": 1
         },
     ),
 
