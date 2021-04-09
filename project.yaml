@@ -41,18 +41,18 @@ actions:
         figure8: output/pt_plot_week_8.png        
         log: logs/2-basic-rd.log
 
-gen_std_popn_3:
+  gen_std_popn_3:
     run: cohortextractor:latest generate_cohort --study-definition study_definition_3
     outputs:
       highly_sensitive:
         cohort: output/input_3.csv
 
-run_model_3:
-  run: r:latest analysis/3-rcmdbatch.R
-  needs: [gen_std_popn_3]
-  outputs:
-    moderately_sensitive:
-      log: logs/3-basic-rd.log
+  run_model_3:
+    run: r:latest analysis/3-rcmdbatch.R
+    needs: [gen_std_popn_3]
+    outputs:
+      moderately_sensitive:
+        log: logs/3-basic-rd.log
   # gen_std_popn_by_week:
   #     run: cohortextractor:latest generate_cohort --study-definition study_definition_2 --index-date-range "2020-12-08 to 2021-02-01 by week" --output-dir=output/measures
   #     outputs:
