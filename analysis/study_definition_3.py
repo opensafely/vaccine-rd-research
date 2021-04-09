@@ -104,6 +104,11 @@ study = StudyDefinition(
         return_expectations={"incidence": 0.95},
     ),
 
+    registered_at_latest=patients.registered_as_of(
+        reference_date=end_date,
+        return_expectations={"incidence": 0.95},
+    ),
+
     # ETHNICITY IN 16 CATEGORIES
     ethnicity_16=patients.with_these_clinical_events(
         ethnicity_codes_16,
