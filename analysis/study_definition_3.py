@@ -286,6 +286,12 @@ study = StudyDefinition(
         """care_home_type""",
         return_expectations={"incidence": 0.1},
     ),
+
+    care_home_primis=patients.with_these_clinical_events(
+        carehome_primis_codes,
+        on_or_before="index_date",
+        returning="binary_flag",
+        return_expectations={"incidence": 0.1},
     ),
 
     ###############################################################################
