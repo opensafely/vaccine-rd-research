@@ -9,8 +9,30 @@ source(here::here("analysis","tsls.R"))
 df_input <- read_csv(
   here::here("output", "input_3.csv"),
   col_types = cols(
+    # identifiers
     patient_id = col_integer(),
-    stp = col_character()
+    practice_id = col_integer(),
+
+    # demographic / administrative
+    msoa = col_character(),
+    stp = col_character(),
+    region = col_character(),
+    imd = col_character(),
+    rural_urban = col_integer(),
+    care_home_type = col_character(),
+    care_home_tpp = col_logical(),
+    care_home_primis = col_logical(),
+    stp = col_character(),
+
+    registered_at_latest = col_logical(),
+    has_follow_up_previous_year = col_logical(),
+
+    age = col_integer(),
+    sex = col_character(),
+    # ethnicity = col_character(),
+    # ethnicity_6_sus = col_character(),
+    ethnicity_16 = col_character()
+
   )
 )
 
