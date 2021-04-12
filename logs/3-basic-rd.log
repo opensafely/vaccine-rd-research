@@ -222,7 +222,7 @@ FALSE  TRUE
 + 
 +   # logistic regression of outcome on instrument
 +   print("Logistic regression of outcome on instrument")
-+   logreg <- glm(pos_test_in_week ~ gr80, data = week_df_tpp)
++   logreg <- glm(pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 +   if (class(logreg) != "try-error") {
 +     print(summary(logreg))
 +     print(exp(cbind(coef(logreg), confint.default(logreg))))
@@ -252,7 +252,7 @@ FALSE  TRUE
 + 
 +   # logistic regression of outcome on instrument
 +   print("Logistic regression of outcome on instrument")
-+   logreg <- try(glm(pos_test_in_week ~ gr80, data = week_df_tpp))
++   logreg <- try(glm(pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp))
 +   if (class(logreg) != "try-error") {
 +     print(summary(logreg))
 +     print(exp(cbind(coef(logreg), confint.default(logreg))))
@@ -290,31 +290,31 @@ age         -1.219677e-05 -6.838191e-05 4.398837e-05
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--0.00058  -0.00058  -0.00058  -0.00058   0.99942  
+    Min       1Q   Median       3Q      Max  
+-0.0341  -0.0341  -0.0341  -0.0341   3.8607  
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)  
-(Intercept)  0.0005800  0.0002836   2.045   0.0409 *
-gr80        -0.0005800  0.0013633  -0.425   0.6705  
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -7.4518     0.5001 -14.899   <2e-16 ***
+gr80         -14.1142  1654.9610  -0.009    0.993    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.000554771)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 3.9978  on 7207  degrees of freedom
-Residual deviance: 3.9977  on 7206  degrees of freedom
+    Null deviance: 67.971  on 7207  degrees of freedom
+Residual deviance: 67.617  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -33579
+AIC: 71.617
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 20
 
-                          2.5 %   97.5 %
-(Intercept) 1.0005802 1.0000241 1.001137
-gr80        0.9994201 0.9967532 1.002094
+                                2.5 %      97.5 %
+(Intercept) 5.803831e-04 0.0002177662 0.001546817
+gr80        7.417554e-07 0.0000000000         Inf
 [1] "primis"
 [1] "Week dataset dimensions"
 [1] 9000   38
@@ -345,31 +345,31 @@ age         -0.0000121724 -6.748773e-05 4.314293e-05
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--0.00058  -0.00058  -0.00058  -0.00058   0.99942  
+    Min       1Q   Median       3Q      Max  
+-0.0341  -0.0341  -0.0341  -0.0341   3.8607  
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)  
-(Intercept)  0.0005800  0.0002836   2.045   0.0409 *
-gr80        -0.0005800  0.0013633  -0.425   0.6705  
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -7.4518     0.5001 -14.899   <2e-16 ***
+gr80         -14.1142  1654.9610  -0.009    0.993    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.000554771)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 3.9978  on 7207  degrees of freedom
-Residual deviance: 3.9977  on 7206  degrees of freedom
+    Null deviance: 67.971  on 7207  degrees of freedom
+Residual deviance: 67.617  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -33579
+AIC: 71.617
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 20
 
-                          2.5 %   97.5 %
-(Intercept) 1.0005802 1.0000241 1.001137
-gr80        0.9994201 0.9967532 1.002094
+                                2.5 %      97.5 %
+(Intercept) 5.803831e-04 0.0002177662 0.001546817
+gr80        7.417554e-07 0.0000000000         Inf
 [1] "Week 2"
 [1] "Start date 2020-12-14"
 [1] "TPP"
@@ -402,29 +402,31 @@ age         -6.098387e-06 -4.582668e-05 0.0000336299
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--0.00029  -0.00029  -0.00029  -0.00029   0.99971  
+    Min       1Q   Median       3Q      Max  
+-0.0241  -0.0241  -0.0241  -0.0241   4.0362  
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)
-(Intercept)  0.0002900  0.0002006   1.446    0.148
-gr80        -0.0002900  0.0009641  -0.301    0.764
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -8.1453     0.7072 -11.517   <2e-16 ***
+gr80         -14.4208  2728.5693  -0.005    0.996    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.000277466)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1.9994  on 7207  degrees of freedom
-Residual deviance: 1.9994  on 7206  degrees of freedom
+    Null deviance: 36.759  on 7207  degrees of freedom
+Residual deviance: 36.582  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -38573
+AIC: 40.582
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 21
 
-                        2.5 %   97.5 %
-(Intercept) 1.00029 0.9998969 1.000683
-gr80        0.99971 0.9978227 1.001601
+                                2.5 %      97.5 %
+(Intercept) 2.901073e-04 7.254058e-05 0.001160209
+gr80        5.459115e-07 0.000000e+00         Inf
 [1] "primis"
 [1] "Week dataset dimensions"
 [1] 9000   38
@@ -455,29 +457,31 @@ age         -0.0000060862 -4.519945e-05 3.302705e-05
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--0.00029  -0.00029  -0.00029  -0.00029   0.99971  
+    Min       1Q   Median       3Q      Max  
+-0.0241  -0.0241  -0.0241  -0.0241   4.0362  
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)
-(Intercept)  0.0002900  0.0002006   1.446    0.148
-gr80        -0.0002900  0.0009641  -0.301    0.764
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -8.1453     0.7072 -11.517   <2e-16 ***
+gr80         -14.4208  2728.5693  -0.005    0.996    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.000277466)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1.9994  on 7207  degrees of freedom
-Residual deviance: 1.9994  on 7206  degrees of freedom
+    Null deviance: 36.759  on 7207  degrees of freedom
+Residual deviance: 36.582  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -38573
+AIC: 40.582
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 21
 
-                        2.5 %   97.5 %
-(Intercept) 1.00029 0.9998969 1.000683
-gr80        0.99971 0.9978227 1.001601
+                                2.5 %      97.5 %
+(Intercept) 2.901073e-04 7.254058e-05 0.001160209
+gr80        5.459115e-07 0.000000e+00         Inf
 [1] "Week 3"
 [1] "Start date 2020-12-21"
 [1] "TPP"
@@ -510,31 +514,31 @@ age          4.300145e-05 -4.126856e-05 0.0001272715
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--0.00321  -0.00116  -0.00116  -0.00116   0.99884  
+    Min       1Q   Median       3Q      Max  
+-0.0801  -0.0482  -0.0482  -0.0482   3.6768  
 
 Coefficients:
-             Estimate Std. Error t value Pr(>|t|)   
-(Intercept) 0.0011601  0.0004253   2.728  0.00639 **
-gr80        0.0020450  0.0020441   1.000  0.31712   
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -6.7581     0.3537 -19.104   <2e-16 ***
+gr80          1.0183     1.0622   0.959    0.338    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.001247226)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 8.9888  on 7207  degrees of freedom
-Residual deviance: 8.9875  on 7206  degrees of freedom
+    Null deviance: 138.33  on 7207  degrees of freedom
+Residual deviance: 137.62  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -27739
+AIC: 141.62
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 9
 
-                         2.5 %   97.5 %
-(Intercept) 1.001161 1.0003266 1.001996
-gr80        1.002047 0.9980406 1.006070
+                              2.5 %       97.5 %
+(Intercept) 0.00116144 0.0005806132  0.002323308
+gr80        2.76848874 0.3451938308 22.203554119
 [1] "primis"
 [1] "Week dataset dimensions"
 [1] 9000   38
@@ -565,31 +569,31 @@ age          4.415348e-05 -3.406972e-05 0.0001223767
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--0.00321  -0.00116  -0.00116  -0.00116   0.99884  
+    Min       1Q   Median       3Q      Max  
+-0.0801  -0.0482  -0.0482  -0.0482   3.6768  
 
 Coefficients:
-             Estimate Std. Error t value Pr(>|t|)   
-(Intercept) 0.0011601  0.0004253   2.728  0.00639 **
-gr80        0.0020450  0.0020441   1.000  0.31712   
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -6.7581     0.3537 -19.104   <2e-16 ***
+gr80          1.0183     1.0622   0.959    0.338    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.001247226)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 8.9888  on 7207  degrees of freedom
-Residual deviance: 8.9875  on 7206  degrees of freedom
+    Null deviance: 138.33  on 7207  degrees of freedom
+Residual deviance: 137.62  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -27739
+AIC: 141.62
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 9
 
-                         2.5 %   97.5 %
-(Intercept) 1.001161 1.0003266 1.001996
-gr80        1.002047 0.9980406 1.006070
+                              2.5 %       97.5 %
+(Intercept) 0.00116144 0.0005806132  0.002323308
+gr80        2.76848874 0.3451938308 22.203554119
 [1] "Week 4"
 [1] "Start date 2020-12-28"
 [1] "TPP"
@@ -622,31 +626,31 @@ age         3.690306e-05 -5.622809e-05 0.0001300342
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--0.00321  -0.00145  -0.00145  -0.00145   0.99855  
+    Min       1Q   Median       3Q      Max  
+-0.0801  -0.0539  -0.0539  -0.0539   3.6156  
 
 Coefficients:
-             Estimate Std. Error t value Pr(>|t|)   
-(Intercept) 0.0014501  0.0004701   3.085  0.00205 **
-gr80        0.0017550  0.0022596   0.777  0.43737   
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -6.5347     0.3165 -20.650   <2e-16 ***
+gr80          0.7949     1.0504   0.757    0.449    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.001524049)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 10.983  on 7207  degrees of freedom
-Residual deviance: 10.982  on 7206  degrees of freedom
+    Null deviance: 164.65  on 7207  degrees of freedom
+Residual deviance: 164.19  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -26294
+AIC: 168.19
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 9
 
-                         2.5 %   97.5 %
-(Intercept) 1.001451 1.0005289 1.002374
-gr80        1.001757 0.9973299 1.006203
+                               2.5 %       97.5 %
+(Intercept) 0.001452222 0.0007810262  0.002700227
+gr80        2.214147910 0.2825509017 17.350682434
 [1] "primis"
 [1] "Week dataset dimensions"
 [1] 9000   38
@@ -677,31 +681,31 @@ age          3.806728e-05 -4.936807e-05 0.0001255026
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--0.00321  -0.00145  -0.00145  -0.00145   0.99855  
+    Min       1Q   Median       3Q      Max  
+-0.0801  -0.0539  -0.0539  -0.0539   3.6156  
 
 Coefficients:
-             Estimate Std. Error t value Pr(>|t|)   
-(Intercept) 0.0014501  0.0004701   3.085  0.00205 **
-gr80        0.0017550  0.0022596   0.777  0.43737   
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -6.5347     0.3165 -20.650   <2e-16 ***
+gr80          0.7949     1.0504   0.757    0.449    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.001524049)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 10.983  on 7207  degrees of freedom
-Residual deviance: 10.982  on 7206  degrees of freedom
+    Null deviance: 164.65  on 7207  degrees of freedom
+Residual deviance: 164.19  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -26294
+AIC: 168.19
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 9
 
-                         2.5 %   97.5 %
-(Intercept) 1.001451 1.0005289 1.002374
-gr80        1.001757 0.9973299 1.006203
+                               2.5 %       97.5 %
+(Intercept) 0.001452222 0.0007810262  0.002700227
+gr80        2.214147910 0.2825509017 17.350682434
 [1] "Week 5"
 [1] "Start date 2021-01-04"
 [1] "TPP"
@@ -734,31 +738,31 @@ age         4.331419e-05 -0.000115266 0.0002018944
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--0.00641  -0.00435  -0.00435  -0.00435   0.99565  
+    Min       1Q   Median       3Q      Max  
+-0.1134  -0.0934  -0.0934  -0.0934   3.2977  
 
 Coefficients:
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 0.0043503  0.0008007   5.433 5.71e-08 ***
-gr80        0.0020599  0.0038484   0.535    0.592    
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -5.4331     0.1830 -29.694   <2e-16 ***
+gr80          0.3897     0.7326   0.532    0.595    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.004420853)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 31.858  on 7207  degrees of freedom
-Residual deviance: 31.857  on 7206  degrees of freedom
+    Null deviance: 410.56  on 7207  degrees of freedom
+Residual deviance: 410.31  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -18618
+AIC: 414.31
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 8
 
-                         2.5 %   97.5 %
-(Intercept) 1.004360 1.0027849 1.005937
-gr80        1.002062 0.9945321 1.009649
+                              2.5 %      97.5 %
+(Intercept) 0.004369356 0.003052609 0.006254084
+gr80        1.476559140 0.351284939 6.206434303
 [1] "primis"
 [1] "Week dataset dimensions"
 [1] 9000   38
@@ -791,31 +795,31 @@ age         -2.583782e-05 -0.0001795682 0.0001278926
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--0.00641  -0.00435  -0.00435  -0.00435   0.99565  
+    Min       1Q   Median       3Q      Max  
+-0.1134  -0.0934  -0.0934  -0.0934   3.2977  
 
 Coefficients:
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 0.0043503  0.0008007   5.433 5.71e-08 ***
-gr80        0.0020599  0.0038484   0.535    0.592    
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -5.4331     0.1830 -29.694   <2e-16 ***
+gr80          0.3897     0.7326   0.532    0.595    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.004420853)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 31.858  on 7207  degrees of freedom
-Residual deviance: 31.857  on 7206  degrees of freedom
+    Null deviance: 410.56  on 7207  degrees of freedom
+Residual deviance: 410.31  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -18618
+AIC: 414.31
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 8
 
-                         2.5 %   97.5 %
-(Intercept) 1.004360 1.0027849 1.005937
-gr80        1.002062 0.9945321 1.009649
+                              2.5 %      97.5 %
+(Intercept) 0.004369356 0.003052609 0.006254084
+gr80        1.476559140 0.351284939 6.206434303
 [1] "Week 6"
 [1] "Start date 2021-01-11"
 [1] "TPP"
@@ -850,31 +854,31 @@ age         -2.071888e-05 -0.0002245614 0.0001831236
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--0.0074  -0.0074  -0.0074  -0.0074   0.9936  
+-0.1218  -0.1218  -0.1218  -0.1218   3.1780  
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  0.0073956  0.0010289   7.188 7.26e-13 ***
-gr80        -0.0009853  0.0049456  -0.199    0.842    
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -4.8994     0.1405 -34.862   <2e-16 ***
+gr80         -0.1440     0.7230  -0.199    0.842    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.007300861)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 52.61  on 7207  degrees of freedom
-Residual deviance: 52.61  on 7206  degrees of freedom
+    Null deviance: 626.35  on 7207  degrees of freedom
+Residual deviance: 626.31  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -15002
+AIC: 630.31
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 7
 
-                          2.5 %   97.5 %
-(Intercept) 1.0074230 1.0053934 1.009457
-gr80        0.9990152 0.9893783 1.008746
+                            2.5 %     97.5 %
+(Intercept) 0.007450694 0.0056568 0.00981347
+gr80        0.865907709 0.2099049 3.57207491
 [1] "primis"
 [1] "Week dataset dimensions"
 [1] 9000   38
@@ -907,31 +911,31 @@ age         -8.061362e-05 -0.0002737127 0.0001124855
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--0.0074  -0.0074  -0.0074  -0.0074   0.9936  
+-0.1218  -0.1218  -0.1218  -0.1218   3.1780  
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  0.0073956  0.0010289   7.188 7.26e-13 ***
-gr80        -0.0009853  0.0049456  -0.199    0.842    
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -4.8994     0.1405 -34.862   <2e-16 ***
+gr80         -0.1440     0.7230  -0.199    0.842    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.007300861)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 52.61  on 7207  degrees of freedom
-Residual deviance: 52.61  on 7206  degrees of freedom
+    Null deviance: 626.35  on 7207  degrees of freedom
+Residual deviance: 626.31  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -15002
+AIC: 630.31
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 7
 
-                          2.5 %   97.5 %
-(Intercept) 1.0074230 1.0053934 1.009457
-gr80        0.9990152 0.9893783 1.008746
+                            2.5 %     97.5 %
+(Intercept) 0.007450694 0.0056568 0.00981347
+gr80        0.865907709 0.2099049 3.57207491
 [1] "Week 7"
 [1] "Start date 2021-01-18"
 [1] "TPP"
@@ -966,31 +970,31 @@ age         -0.0001573071 -0.0004911364 0.0001765222
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--0.0203  -0.0203  -0.0203  -0.0203   0.9872  
+-0.2025  -0.2025  -0.2025  -0.2025   2.9518  
 
 Coefficients:
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  0.020302   0.001685  12.048   <2e-16 ***
-gr80        -0.007481   0.008099  -0.924    0.356    
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -3.87654    0.08539 -45.400   <2e-16 ***
+gr80        -0.46726    0.51043  -0.915     0.36    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.01958181)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 141.12  on 7207  degrees of freedom
-Residual deviance: 141.11  on 7206  degrees of freedom
+    Null deviance: 1412.1  on 7207  degrees of freedom
+Residual deviance: 1411.1  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -7890.8
+AIC: 1415.1
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 7
 
-                          2.5 %   97.5 %
-(Intercept) 1.0205091 1.0171442 1.023885
-gr80        0.9925468 0.9769148 1.008429
+                           2.5 %     97.5 %
+(Intercept) 0.02072232 0.0175290 0.02449738
+gr80        0.62671614 0.2304588 1.70430914
 [1] "primis"
 [1] "Week dataset dimensions"
 [1] 9000   38
@@ -1023,31 +1027,31 @@ age         -0.0000744133 -0.0003951067 0.0002462801
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--0.0203  -0.0203  -0.0203  -0.0203   0.9872  
+-0.2025  -0.2025  -0.2025  -0.2025   2.9518  
 
 Coefficients:
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  0.020302   0.001685  12.048   <2e-16 ***
-gr80        -0.007481   0.008099  -0.924    0.356    
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -3.87654    0.08539 -45.400   <2e-16 ***
+gr80        -0.46726    0.51043  -0.915     0.36    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.01958181)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 141.12  on 7207  degrees of freedom
-Residual deviance: 141.11  on 7206  degrees of freedom
+    Null deviance: 1412.1  on 7207  degrees of freedom
+Residual deviance: 1411.1  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -7890.8
+AIC: 1415.1
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 7
 
-                          2.5 %   97.5 %
-(Intercept) 1.0205091 1.0171442 1.023885
-gr80        0.9925468 0.9769148 1.008429
+                           2.5 %     97.5 %
+(Intercept) 0.02072232 0.0175290 0.02449738
+gr80        0.62671614 0.2304588 1.70430914
 [1] "Week 8"
 [1] "Start date 2021-01-25"
 [1] "TPP"
@@ -1082,31 +1086,31 @@ age         0.0002401044 -0.000246916 0.0007271249
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--0.05449  -0.04307  -0.04307  -0.04307   0.95693  
+    Min       1Q   Median       3Q      Max  
+-0.3347  -0.2967  -0.2967  -0.2967   2.5080  
 
 Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 0.043068   0.002458  17.520   <2e-16 ***
-gr80        0.011419   0.011815   0.966    0.334    
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -3.10094    0.05932 -52.277   <2e-16 ***
+gr80         0.24718    0.25638   0.964    0.335    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.04167116)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 300.32  on 7207  degrees of freedom
-Residual deviance: 300.28  on 7206  degrees of freedom
+    Null deviance: 2582.0  on 7207  degrees of freedom
+Residual deviance: 2581.1  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -2447.2
+AIC: 2585.1
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 6
 
-                         2.5 %   97.5 %
-(Intercept) 1.044009 1.0389914 1.049052
-gr80        1.011484 0.9883296 1.035181
+                            2.5 %    97.5 %
+(Intercept) 0.04500682 0.04006705 0.0505556
+gr80        1.28040861 0.77466787 2.1163214
 [1] "primis"
 [1] "Week dataset dimensions"
 [1] 9000   38
@@ -1139,31 +1143,31 @@ age         0.0001008788 -0.0003879369 0.0005896944
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--0.05449  -0.04307  -0.04307  -0.04307   0.95693  
+    Min       1Q   Median       3Q      Max  
+-0.3347  -0.2967  -0.2967  -0.2967   2.5080  
 
 Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 0.043068   0.002458  17.520   <2e-16 ***
-gr80        0.011419   0.011815   0.966    0.334    
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -3.10094    0.05932 -52.277   <2e-16 ***
+gr80         0.24718    0.25638   0.964    0.335    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.04167116)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 300.32  on 7207  degrees of freedom
-Residual deviance: 300.28  on 7206  degrees of freedom
+    Null deviance: 2582.0  on 7207  degrees of freedom
+Residual deviance: 2581.1  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: -2447.2
+AIC: 2585.1
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 6
 
-                         2.5 %   97.5 %
-(Intercept) 1.044009 1.0389914 1.049052
-gr80        1.011484 0.9883296 1.035181
+                            2.5 %    97.5 %
+(Intercept) 0.04500682 0.04006705 0.0505556
+gr80        1.28040861 0.77466787 2.1163214
 [1] "Week 9"
 [1] "Start date 2021-02-01"
 [1] "TPP"
@@ -1198,31 +1202,31 @@ age         0.0003695779 -0.000390521 0.001129677
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--0.1314  -0.1138  -0.1138  -0.1138   0.8862  
+-0.5308  -0.4916  -0.4916  -0.4916   2.0847  
 
 Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 0.113834   0.003836  29.675   <2e-16 ***
-gr80        0.017576   0.018438   0.953     0.34    
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.05216    0.03791 -54.127   <2e-16 ***
+gr80         0.16362    0.17181   0.952    0.341    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.1014783)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 731.34  on 7207  degrees of freedom
-Residual deviance: 731.25  on 7206  degrees of freedom
+    Null deviance: 5132.3  on 7207  degrees of freedom
+Residual deviance: 5131.4  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: 3968.2
+AIC: 5135.4
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 4
 
-                         2.5 %   97.5 %
-(Intercept) 1.120566 1.1121727 1.129023
-gr80        1.017732 0.9816092 1.055183
+                          2.5 %    97.5 %
+(Intercept) 0.1284569 0.1192573 0.1383662
+gr80        1.1777611 0.8410363 1.6493000
 [1] "primis"
 [1] "Week dataset dimensions"
 [1] 9000   38
@@ -1255,31 +1259,31 @@ age         0.000148703 -0.0006006452 0.0008980512
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--0.1314  -0.1138  -0.1138  -0.1138   0.8862  
+-0.5308  -0.4916  -0.4916  -0.4916   2.0847  
 
 Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 0.113834   0.003836  29.675   <2e-16 ***
-gr80        0.017576   0.018438   0.953     0.34    
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.05216    0.03791 -54.127   <2e-16 ***
+gr80         0.16362    0.17181   0.952    0.341    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.1014783)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 731.34  on 7207  degrees of freedom
-Residual deviance: 731.25  on 7206  degrees of freedom
+    Null deviance: 5132.3  on 7207  degrees of freedom
+Residual deviance: 5131.4  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: 3968.2
+AIC: 5135.4
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 4
 
-                         2.5 %   97.5 %
-(Intercept) 1.120566 1.1121727 1.129023
-gr80        1.017732 0.9816092 1.055183
+                          2.5 %    97.5 %
+(Intercept) 0.1284569 0.1192573 0.1383662
+gr80        1.1777611 0.8410363 1.6493000
 [1] "Week 10"
 [1] "Start date 2021-02-08"
 [1] "TPP"
@@ -1314,31 +1318,31 @@ age         -0.0005269632 -0.001557572 0.0005036455
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--0.2494  -0.2494  -0.2494  -0.2244   0.7756  
+-0.7575  -0.7575  -0.7575  -0.7128   1.7289  
 
 Coefficients:
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  0.249420   0.005203  47.937   <2e-16 ***
-gr80        -0.025061   0.025009  -1.002    0.316    
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -1.10171    0.02783 -39.585   <2e-16 ***
+gr80        -0.13873    0.13854  -1.001    0.317    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.1866906)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1345.5  on 7207  degrees of freedom
-Residual deviance: 1345.3  on 7206  degrees of freedom
+    Null deviance: 8080.2  on 7207  degrees of freedom
+Residual deviance: 8079.1  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: 8362.2
+AIC: 8083.1
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 4
 
-                          2.5 %   97.5 %
-(Intercept) 1.2832808 1.2702606 1.296435
-gr80        0.9752504 0.9285999 1.024245
+                          2.5 %    97.5 %
+(Intercept) 0.3323029 0.3146617 0.3509332
+gr80        0.8704594 0.6634765 1.1420141
 [1] "primis"
 [1] "Week dataset dimensions"
 [1] 9000   38
@@ -1371,31 +1375,31 @@ age         -0.0003615678 -0.001370742 0.0006476065
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--0.2494  -0.2494  -0.2494  -0.2244   0.7756  
+-0.7575  -0.7575  -0.7575  -0.7128   1.7289  
 
 Coefficients:
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  0.249420   0.005203  47.937   <2e-16 ***
-gr80        -0.025061   0.025009  -1.002    0.316    
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -1.10171    0.02783 -39.585   <2e-16 ***
+gr80        -0.13873    0.13854  -1.001    0.317    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.1866906)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1345.5  on 7207  degrees of freedom
-Residual deviance: 1345.3  on 7206  degrees of freedom
+    Null deviance: 8080.2  on 7207  degrees of freedom
+Residual deviance: 8079.1  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: 8362.2
+AIC: 8083.1
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 4
 
-                          2.5 %   97.5 %
-(Intercept) 1.2832808 1.2702606 1.296435
-gr80        0.9752504 0.9285999 1.024245
+                          2.5 %    97.5 %
+(Intercept) 0.3323029 0.3146617 0.3509332
+gr80        0.8704594 0.6634765 1.1420141
 [1] "Week 11"
 [1] "Start date 2021-02-15"
 [1] "TPP"
@@ -1430,31 +1434,31 @@ age         -9.616687e-06 -0.001194399 0.001175165
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--0.5582  -0.5582   0.4419   0.4419   0.4423  
+   Min      1Q  Median      3Q     Max  
+-1.278  -1.278   1.080   1.080   1.081  
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  0.5581497  0.0059810  93.320   <2e-16 ***
-gr80        -0.0004573  0.0287479  -0.016    0.987    
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  0.233656   0.024248   9.636   <2e-16 ***
+gr80        -0.001854   0.116539  -0.016    0.987    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.2466894)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1777.6  on 7207  degrees of freedom
-Residual deviance: 1777.6  on 7206  degrees of freedom
+    Null deviance: 9894.8  on 7207  degrees of freedom
+Residual deviance: 9894.8  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: 10371
+AIC: 9898.8
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 3
 
                           2.5 %   97.5 %
-(Intercept) 1.7474361 1.7270712 1.768041
-gr80        0.9995428 0.9447809 1.057479
+(Intercept) 1.2632097 1.2045785 1.324695
+gr80        0.9981475 0.7943224 1.254274
 [1] "primis"
 [1] "Week dataset dimensions"
 [1] 9000   38
@@ -1487,33 +1491,33 @@ age         0.0002288887 -0.0009361163 0.001393894
 [1] "Logistic regression of outcome on instrument"
 
 Call:
-glm(formula = pos_test_in_week ~ gr80, data = week_df_tpp)
+glm(formula = pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp)
 
 Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--0.5582  -0.5582   0.4419   0.4419   0.4423  
+   Min      1Q  Median      3Q     Max  
+-1.278  -1.278   1.080   1.080   1.081  
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  0.5581497  0.0059810  93.320   <2e-16 ***
-gr80        -0.0004573  0.0287479  -0.016    0.987    
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  0.233656   0.024248   9.636   <2e-16 ***
+gr80        -0.001854   0.116539  -0.016    0.987    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for gaussian family taken to be 0.2466894)
+(Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1777.6  on 7207  degrees of freedom
-Residual deviance: 1777.6  on 7206  degrees of freedom
+    Null deviance: 9894.8  on 7207  degrees of freedom
+Residual deviance: 9894.8  on 7206  degrees of freedom
   (1792 observations deleted due to missingness)
-AIC: 10371
+AIC: 9898.8
 
-Number of Fisher Scoring iterations: 2
+Number of Fisher Scoring iterations: 3
 
                           2.5 %   97.5 %
-(Intercept) 1.7474361 1.7270712 1.768041
-gr80        0.9995428 0.9447809 1.057479
+(Intercept) 1.2632097 1.2045785 1.324695
+gr80        0.9981475 0.7943224 1.254274
 There were 22 warnings (use warnings() to see them)
 > 
 > proc.time()
    user  system elapsed 
-  1.444   0.049   1.487 
+  1.762   0.061   2.121 
