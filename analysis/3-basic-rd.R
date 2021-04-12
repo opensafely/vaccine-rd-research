@@ -112,9 +112,9 @@ for (i in 1:length(startweek)) {
   
   # fit IV estimator
   ivfit <- try(tsls(as.numeric(pos_test_in_week) ~ age, ~ gr80, 
-                data = df_input))
+                data = week_df_tpp))
   if (class(ivfit) != "try-error") {
-    results[[i]] <- ivfit
+    results_tpp[[i]] <- ivfit
     print(summary(ivfit))
     print(cbind(coef(ivfit), confint.default(ivfit)))
   }
