@@ -74,7 +74,7 @@ endweek   <- c("2020-12-14","2020-12-21","2020-12-28","2021-01-04","2021-01-11",
               "2021-02-22")
 
 # initialise lists for results and plots
-results <- pt_plot <- vector("list", length(startweek))
+results_tpp <- results_primis <- pt_plot <- vector("list", length(startweek))
 
 for (i in 1:length(startweek)) {
   
