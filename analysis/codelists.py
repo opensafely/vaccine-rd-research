@@ -147,8 +147,8 @@ asplenia_codes = codelist_from_csv(
     "codelists/opensafely-asplenia.csv", system="ctv3", column="CTV3ID"
 )
 
-# carehome_primis_codes = codelist_from_csv(
-#     "codelists/primis-covid19-vacc-uptake-longres.csv", 
-#     system="snomed", 
-#     column="code",
-# )
+carehome_primis_codes = codelist_from_csv(
+    "codelists/primis-covid19-vacc-uptake-longres.csv", 
+    system="snomed", 
+    column="code",
+)

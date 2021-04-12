@@ -21,7 +21,7 @@ df_input <- read_csv(
     rural_urban = col_integer(),
     care_home_type = col_character(),
     care_home_tpp = col_logical(),
-    # care_home_primis = col_logical(),
+    care_home_primis = col_logical(),
     stp = col_character(),
 
     registered_at_latest = col_logical(),
@@ -54,8 +54,8 @@ table(df_input$care_home_type, useNA = "ifany")
 class(df_input$care_home_tpp)
 table(df_input$care_home_tpp, useNA = "ifany")
 
-# class(df_input$care_home_primis)
-# table(df_input$care_home_primis, useNA = "ifany")
+class(df_input$care_home_primis)
+table(df_input$care_home_primis, useNA = "ifany")
 
 df_input <- df_input %>%
   filter(care_home_tpp == FALSE)
