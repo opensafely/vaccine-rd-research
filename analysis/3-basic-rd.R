@@ -91,6 +91,7 @@ for (i in 1:length(startweek)) {
              positive_test_1_date <= endweek[i])
   print("Week dataset dimensions")
   print(dim(week_df_tpp))
+  # print(class(week_df_tpp$pos_test_in_week))
   print("Positive tests in week")
   print(table(week_df_tpp$pos_test_in_week))
   
@@ -137,6 +138,7 @@ for (i in 1:length(startweek)) {
              positive_test_1_date <= endweek[i])
   print("Week dataset dimensions")
   print(dim(week_df_primis))
+  # print(class(week_df_primis$pos_test_in_week))
   print("Positive tests in week")
   print(table(week_df_primis$pos_test_in_week))
 
