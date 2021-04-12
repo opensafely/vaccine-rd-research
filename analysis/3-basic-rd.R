@@ -89,9 +89,9 @@ for (i in 1:length(startweek)) {
   week_df_tpp <- df_input_tpp %>% 
     mutate(pos_test_in_week = positive_test_1_date > startweek[i] &
              positive_test_1_date <= endweek[i])
-  dim(week_df_tpp) 
-  class(week_df_tpp$pos_test_in_week)
-  table(week_df_tpp$pos_test_in_week)
+  print(dim(week_df_tpp))
+  print(class(week_df_tpp$pos_test_in_week))
+  print(table(week_df_tpp$pos_test_in_week))
   
   # pt_plot[[i]] <- df_input %>% 
   #   drop_na(age, pos_test_in_week) %>%
@@ -134,9 +134,9 @@ for (i in 1:length(startweek)) {
   week_df_primis <- df_input_primis %>% 
     mutate(pos_test_in_week = positive_test_1_date > startweek[i] &
              positive_test_1_date <= endweek[i])
-  dim(week_df_primis) 
-  class(week_df_primis$pos_test_in_week)
-  table(week_df_primis$pos_test_in_week)
+  print(dim(week_df_primis))
+  print(class(week_df_primis$pos_test_in_week))
+  print(table(week_df_primis$pos_test_in_week))
 
     # fit IV estimator
   ivfit <- try(tsls(as.numeric(pos_test_in_week) ~ age, ~ gr80, 
