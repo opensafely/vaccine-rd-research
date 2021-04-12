@@ -81,7 +81,10 @@ for (i in 1:length(startweek)) {
   # print iteration
   print(paste("Week", i))
   print(paste("Start date", startweek[i]))
-  
+
+  # TPP
+  print("TPP")
+
   # positive test in week
   df_input <- df_input %>% 
     mutate(pos_test_in_week = positive_test_1_date > startweek[i] &
