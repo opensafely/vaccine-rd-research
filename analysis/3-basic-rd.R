@@ -128,4 +128,11 @@ for (i in 1:length(startweek)) {
   # primis
   print("primis")
 
+  # positive test in week
+  week_df_primis <- df_input_primis %>% 
+    mutate(pos_test_in_week = positive_test_1_date > startweek[i] &
+             positive_test_1_date <= endweek[i])
+  dim(week_df_primis) 
+  class(week_df_primis$pos_test_in_week)
+  table(week_df_primis$pos_test_in_week)
 }
