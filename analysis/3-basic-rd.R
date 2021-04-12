@@ -135,4 +135,13 @@ for (i in 1:length(startweek)) {
   dim(week_df_primis) 
   class(week_df_primis$pos_test_in_week)
   table(week_df_primis$pos_test_in_week)
+
+    # fit IV estimator
+  ivfit <- try(tsls(as.numeric(pos_test_in_week) ~ age, ~ gr80, 
+                data = week_df_primis))
+  if (class(ivfit) != "try-error") {
+    results_primis[[i]] <- ivfit
+    print(summary(ivfit))
+    print(cbind(coef(ivfit), confint.default(ivfit)))
+  }
 }
