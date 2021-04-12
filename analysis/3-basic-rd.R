@@ -124,4 +124,8 @@ for (i in 1:length(startweek)) {
   logreg <- glm(pos_test_in_week ~ gr80, data = week_df_tpp)
   print(summary(logreg))
   print(exp(cbind(coef(logreg), confint.default(logreg))))
+
+  # primis
+  print("primis")
+
 }
