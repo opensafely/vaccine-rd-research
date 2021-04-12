@@ -89,8 +89,9 @@ for (i in 1:length(startweek)) {
   week_df_tpp <- df_input_tpp %>% 
     mutate(pos_test_in_week = positive_test_1_date > startweek[i] &
              positive_test_1_date <= endweek[i])
+  print("Week dataset dimensions")
   print(dim(week_df_tpp))
-  print(class(week_df_tpp$pos_test_in_week))
+  print("Positive tests in week")
   print(table(week_df_tpp$pos_test_in_week))
   
   # pt_plot[[i]] <- df_input %>% 
@@ -134,8 +135,9 @@ for (i in 1:length(startweek)) {
   week_df_primis <- df_input_primis %>% 
     mutate(pos_test_in_week = positive_test_1_date > startweek[i] &
              positive_test_1_date <= endweek[i])
+  print("Week dataset dimensions")
   print(dim(week_df_primis))
-  print(class(week_df_primis$pos_test_in_week))
+  print("Positive tests in week")
   print(table(week_df_primis$pos_test_in_week))
 
     # fit IV estimator
