@@ -144,4 +144,11 @@ for (i in 1:length(startweek)) {
     print(summary(ivfit))
     print(cbind(coef(ivfit), confint.default(ivfit)))
   }
+
+  # logistic regression of outcome on instrument
+  print("Logistic regression of outcome on instrument")
+  logreg <- glm(pos_test_in_week ~ gr80, data = week_df_tpp)
+  print(summary(logreg))
+  print(exp(cbind(coef(logreg), confint.default(logreg))))
+
 }
