@@ -86,12 +86,12 @@ for (i in 1:length(startweek)) {
   print("TPP")
 
   # positive test in week
-  df_input <- df_input %>% 
+  week_df_tpp <- df_input_tpp %>% 
     mutate(pos_test_in_week = positive_test_1_date > startweek[i] &
              positive_test_1_date <= endweek[i])
-  
-  class(df_input$pos_test_in_week)
-  table(df_input$pos_test_in_week)
+  dim(week_df_tpp) 
+  class(week_df_tpp$pos_test_in_week)
+  table(week_df_tpp$pos_test_in_week)
   
   # pt_plot[[i]] <- df_input %>% 
   #   drop_na(age, pos_test_in_week) %>%
