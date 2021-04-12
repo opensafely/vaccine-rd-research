@@ -1,0 +1,80 @@
+2021-03-16T17:18:41.164982800Z 2021-03-16 17:18:41 [info     ] Generating cohort for study_definition_2 in output [cohortextractor.cohortextractor] 
+2021-03-16T17:18:41.473683900Z 2021-03-16 17:18:41 [info     ] Checking for existing results in 'OPENCoronaTempTables..DataExtract_0a18b5c3a3619190083d809b22788cbaa58481bc' [cohortextractor.tpp_backend] 
+2021-03-16T17:18:41.585875200Z 2021-03-16 17:18:41 [info     ] No existing results found, running queries to generate new results [cohortextractor.tpp_backend] 
+2021-03-16T17:18:41.615350500Z 2021-03-16 17:18:41 [info     ] Running: Query for age         [cohortextractor.tpp_backend] 
+2021-03-16T17:18:58.570548600Z 2021-03-16 17:18:58 [info     ] Running: Query for sex         [cohortextractor.tpp_backend] 
+2021-03-16T17:19:05.916120800Z 2021-03-16 17:19:05 [info     ] Running: Query for bmi_value   [cohortextractor.tpp_backend] 
+2021-03-16T19:56:55.178978000Z 2021-03-16 19:56:55 [info     ] Running: Query for has_follow_up_previous_year [cohortextractor.tpp_backend] 
+2021-03-16T19:58:23.114606000Z 2021-03-16 19:58:23 [info     ] Running: Uploading codelist for ethnicity_16 [cohortextractor.tpp_backend] 
+2021-03-16T19:58:23.156319600Z 2021-03-16 19:58:23 [info     ] Running: Query for ethnicity_16 [cohortextractor.tpp_backend] 
+2021-03-16T21:54:15.643958200Z 2021-03-16 21:54:15 [info     ] Running: Uploading codelist for ethnicity [cohortextractor.tpp_backend] 
+2021-03-16T21:54:15.688825500Z 2021-03-16 21:54:15 [info     ] Running: Query for ethnicity   [cohortextractor.tpp_backend] 
+2021-03-16T21:59:00.696219700Z 2021-03-16 21:59:00 [info     ] Running: Query for practice_id [cohortextractor.tpp_backend] 
+2021-03-16T21:59:51.832476600Z 2021-03-16 21:59:51 [info     ] Running: Query for stp         [cohortextractor.tpp_backend] 
+2021-03-16T22:00:43.279222500Z 2021-03-16 22:00:43 [info     ] Running: Query for region      [cohortextractor.tpp_backend] 
+2021-03-16T22:01:14.444481200Z 2021-03-16 22:01:14 [info     ] Running: Query for index_of_multiple_deprivation [cohortextractor.tpp_backend] 
+2021-03-16T22:01:44.894965100Z 2021-03-16 22:01:44 [info     ] Running: Query for care_home_type [cohortextractor.tpp_backend] 
+2021-03-16T22:02:02.216002900Z 2021-03-16 22:02:02 [info     ] Running: Query for covid_vax_1_date [cohortextractor.tpp_backend] 
+2021-03-16T22:02:25.104338900Z 2021-03-16 22:02:25 [info     ] Running: Query for covid_vax_2_date [cohortextractor.tpp_backend] 
+2021-03-16T22:02:48.646700000Z 2021-03-16 22:02:48 [info     ] Running: Query for covid_vax_3_date [cohortextractor.tpp_backend] 
+2021-03-16T22:05:52.058007300Z 2021-03-16 22:05:52 [info     ] Running: Query for covid_vax_4_date [cohortextractor.tpp_backend] 
+2021-03-16T22:06:37.624119800Z 2021-03-16 22:06:37 [info     ] Running: Query for covid_vax_pfizer_1_date [cohortextractor.tpp_backend] 
+2021-03-16T22:07:29.602614000Z 2021-03-16 22:07:29 [info     ] Running: Query for covid_vax_pfizer_2_date [cohortextractor.tpp_backend] 
+2021-03-16T22:08:18.002659900Z 2021-03-16 22:08:18 [info     ] Running: Query for covid_vax_pfizer_3_date [cohortextractor.tpp_backend] 
+2021-03-16T22:09:17.640358500Z 2021-03-16 22:09:17 [info     ] Running: Query for covid_vax_pfizer_4_date [cohortextractor.tpp_backend] 
+2021-03-16T22:09:55.352979900Z 2021-03-16 22:09:55 [info     ] Running: Query for covid_vax_az_1_date [cohortextractor.tpp_backend] 
+2021-03-16T22:10:40.062093800Z 2021-03-16 22:10:40 [info     ] Running: Query for covid_vax_az_2_date [cohortextractor.tpp_backend] 
+2021-03-16T22:11:27.995400000Z 2021-03-16 22:11:27 [info     ] Running: Query for covid_vax_az_3_date [cohortextractor.tpp_backend] 
+2021-03-16T22:12:27.450510700Z 2021-03-16 22:12:27 [info     ] Running: Query for covid_vax_az_4_date [cohortextractor.tpp_backend] 
+2021-03-16T22:13:27.661162200Z 2021-03-16 22:13:27 [info     ] Running: Query for prior_positive_test_date [cohortextractor.tpp_backend] 
+2021-03-16T22:13:28.867017800Z 2021-03-16 22:13:28 [info     ] Running: Uploading codelist for prior_primary_care_covid_case_date [cohortextractor.tpp_backend] 
+2021-03-16T22:13:28.898881800Z 2021-03-16 22:13:28 [info     ] Running: Query for prior_primary_care_covid_case_date [cohortextractor.tpp_backend] 
+2021-03-16T22:13:36.105603400Z 2021-03-16 22:13:36 [info     ] Running: Query for prior_admitted_for_covid_date [cohortextractor.tpp_backend] 
+2021-03-16T22:13:56.201671000Z 2021-03-16 22:13:56 [info     ] Running: Query for positive_test_1_date [cohortextractor.tpp_backend] 
+2021-03-16T22:14:06.281640000Z 2021-03-16 22:14:06 [info     ] Running: Uploading codelist for primary_care_covid_case_1_date [cohortextractor.tpp_backend] 
+2021-03-16T22:14:06.311696500Z 2021-03-16 22:14:06 [info     ] Running: Query for primary_care_covid_case_1_date [cohortextractor.tpp_backend] 
+2021-03-16T22:14:06.509414800Z 2021-03-16 22:14:06 [info     ] Running: Query for admitted_1_date [cohortextractor.tpp_backend] 
+2021-03-16T22:14:18.442345100Z 2021-03-16 22:14:18 [info     ] Running: Query for coviddeath_date [cohortextractor.tpp_backend] 
+2021-03-16T22:14:27.382192700Z 2021-03-16 22:14:27 [info     ] Running: Query for death_date  [cohortextractor.tpp_backend] 
+2021-03-16T22:14:27.591192100Z 2021-03-16 22:14:27 [info     ] Running: Query for registered  [cohortextractor.tpp_backend] 
+2021-03-16T22:14:51.967316400Z 2021-03-16 22:14:51 [info     ] Running: Query for has_died    [cohortextractor.tpp_backend] 
+2021-03-16T22:14:57.269795500Z 2021-03-16 22:14:57 [info     ] Writing results into temporary table 'OPENCoronaTempTables..DataExtract_0a18b5c3a3619190083d809b22788cbaa58481bc' [cohortextractor.tpp_backend] 
+2021-03-16T22:57:03.286256100Z 2021-03-16 22:57:03 [info     ] Downloading results from 'OPENCoronaTempTables..DataExtract_0a18b5c3a3619190083d809b22788cbaa58481bc' [cohortextractor.tpp_backend] 
+2021-03-16T22:57:23.379940200Z 2021-03-16 22:57:23 [info     ] Downloaded 1000000 results     [cohortextractor.tpp_backend] 
+2021-03-16T22:57:40.634284900Z 2021-03-16 22:57:40 [info     ] Downloaded 2000000 results     [cohortextractor.tpp_backend] 
+2021-03-16T22:57:58.139572900Z 2021-03-16 22:57:58 [info     ] Downloaded 3000000 results     [cohortextractor.tpp_backend] 
+2021-03-16T22:58:15.396810000Z 2021-03-16 22:58:15 [info     ] Downloaded 4000000 results     [cohortextractor.tpp_backend] 
+2021-03-16T22:58:33.196270000Z 2021-03-16 22:58:33 [info     ] Downloaded 5000000 results     [cohortextractor.tpp_backend] 
+2021-03-16T22:58:50.968924400Z 2021-03-16 22:58:50 [info     ] Downloaded 6000000 results     [cohortextractor.tpp_backend] 
+2021-03-16T22:59:08.318664400Z 2021-03-16 22:59:08 [info     ] Downloaded 7000000 results     [cohortextractor.tpp_backend] 
+2021-03-16T22:59:26.340089500Z 2021-03-16 22:59:26 [info     ] Downloaded 8000000 results     [cohortextractor.tpp_backend] 
+2021-03-16T22:59:44.165865700Z 2021-03-16 22:59:44 [info     ] Downloaded 9000000 results     [cohortextractor.tpp_backend] 
+2021-03-16T23:00:01.916140400Z 2021-03-16 23:00:01 [info     ] Downloaded 10000000 results    [cohortextractor.tpp_backend] 
+2021-03-16T23:00:21.956372600Z 2021-03-16 23:00:21 [info     ] Downloaded 11000000 results    [cohortextractor.tpp_backend] 
+2021-03-16T23:00:39.354963300Z 2021-03-16 23:00:39 [info     ] Downloaded 12000000 results    [cohortextractor.tpp_backend] 
+2021-03-16T23:00:56.950219700Z 2021-03-16 23:00:56 [info     ] Downloaded 13000000 results    [cohortextractor.tpp_backend] 
+2021-03-16T23:01:15.439132900Z 2021-03-16 23:01:15 [info     ] Downloaded 14000000 results    [cohortextractor.tpp_backend] 
+2021-03-16T23:01:33.014793500Z 2021-03-16 23:01:33 [info     ] Downloaded 15000000 results    [cohortextractor.tpp_backend] 
+2021-03-16T23:01:51.220084300Z 2021-03-16 23:01:51 [info     ] Downloaded 16000000 results    [cohortextractor.tpp_backend] 
+2021-03-16T23:02:10.945315700Z 2021-03-16 23:02:10 [info     ] Downloaded 17000000 results    [cohortextractor.tpp_backend] 
+2021-03-16T23:02:31.026829200Z 2021-03-16 23:02:31 [info     ] Downloaded 18000000 results    [cohortextractor.tpp_backend] 
+2021-03-16T23:02:48.074077600Z 2021-03-16 23:02:48 [info     ] Downloaded 19000000 results    [cohortextractor.tpp_backend] 
+2021-03-16T23:02:52.570456600Z 2021-03-16 23:02:52 [info     ] Downloaded 19245341 results    [cohortextractor.tpp_backend] 
+2021-03-16T23:02:52.570542200Z 2021-03-16 23:02:52 [info     ] Running: Deleting 'OPENCoronaTempTables..DataExtract_0a18b5c3a3619190083d809b22788cbaa58481bc' [cohortextractor.tpp_backend] 
+2021-03-16T23:02:53.947825100Z 2021-03-16 23:02:53 [info     ] Successfully created cohort and covariates at output/input_2.csv [cohortextractor.cohortextractor] 
+
+
+state: succeeded
+commit: 655b1339a378c3919a930f3b20ad75b14d55c981
+docker_image_id: sha256:e0c3fac054fd31a3204ec9d18ca4493bac78551b154f43dd6be0da81828d0d63
+exit_code: 0
+job_id: 43dbcqdohh4rq7jr
+run_by_user: LFISHER7
+created_at: 2021-03-16T17:18:28Z
+started_at: 2021-03-16T17:18:39Z
+completed_at: 2021-03-16T23:03:00Z
+
+Completed successfully
+
+outputs:
+  output/input_2.csv  - highly_sensitive
