@@ -167,6 +167,12 @@
       "url": "https://codelists.opensafely.org/codelist/opensafely/temporary-immunosuppression/2020-04-24/",
       "downloaded_at": "2021-01-18 11:45:44.702418Z",
       "sha": "99f6c0787e17e16430549a4cfb5084612faba2ac"
+    },
+    "primis-covid19-vacc-uptake-longres.csv": {
+      "id": "primis-covid19-vacc-uptake/longres/v1",
+      "url": "https://codelists.opensafely.org/codelist/primis-covid19-vacc-uptake/longres/v1/",
+      "downloaded_at": "2021-04-06 10:43:36.634532Z",
+      "sha": "4d4c94b9c6aa267c6a60657150bbc5ec7d2d7625"
     }
   }
 }
