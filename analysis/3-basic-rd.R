@@ -153,7 +153,7 @@ for (i in 1:length(startweek)) {
 
   # logistic regression of outcome on instrument
   print("Logistic regression of outcome on instrument")
-  logreg <- try(glm(pos_test_in_week ~ gr80, family = "binomial", data = week_df_tpp))
+  logreg <- try(glm(pos_test_in_week ~ gr80, family = "binomial", data = week_df_primis))
   if (class(logreg) != "try-error") {
     print(summary(logreg))
     print(exp(cbind(coef(logreg), confint.default(logreg))))
