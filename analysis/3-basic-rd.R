@@ -65,6 +65,10 @@ df_input_primis <- df_input %>%
   filter(care_home_primis == FALSE)
 dim(df_input_primis)
 
+df_input_either <- df_input %>%
+  filter(care_home_tpp == FALSE | care_home_primis == FALSE)
+dim(df_input_either)
+
 # setup week start and end dates
 startweek <- c("2020-12-07","2020-12-14","2020-12-21","2020-12-28","2021-01-04",
               "2021-01-11","2021-01-18","2021-01-25","2021-02-01","2021-02-08",
@@ -74,7 +78,7 @@ endweek   <- c("2020-12-14","2020-12-21","2020-12-28","2021-01-04","2021-01-11",
               "2021-02-22")
 
 # initialise lists for results and plots
-results_tpp <- results_primis <- pt_plot <- vector("list", length(startweek))
+results_tpp <- results_primis <- results_either <- pt_plot <- vector("list", length(startweek))
 
 for (i in 1:length(startweek)) {
   
@@ -154,6 +158,36 @@ for (i in 1:length(startweek)) {
   # logistic regression of outcome on instrument
   print("Logistic regression of outcome on instrument")
   logreg <- try(glm(pos_test_in_week ~ gr80, family = "binomial", data = week_df_primis))
+  if (class(logreg) != "try-error") {
+    print(summary(logreg))
+    print(exp(cbind(coef(logreg), confint.default(logreg))))
+  }
+
+  # Either
+  print("Either")
+
+  # positive test in week
+  week_df_either <- df_input_either %>% 
+    mutate(pos_test_in_week = positive_test_1_date > startweek[i] &
+             positive_test_1_date <= endweek[i])
+  print("Week dataset dimensions")
+  print(dim(week_df_either))
+  # print(class(week_df_primis$pos_test_in_week))
+  print("Positive tests in week")
+  print(table(week_df_either$pos_test_in_week))
+
+    # fit IV estimator
+  ivfit <- try(tsls(as.numeric(pos_test_in_week) ~ age, ~ gr80, 
+                data = week_df_either))
+  if (class(ivfit) != "try-error") {
+    results_either[[i]] <- ivfit
+    print(summary(ivfit))
+    print(cbind(coef(ivfit), confint.default(ivfit)))
+  }
+
+  # logistic regression of outcome on instrument
+  print("Logistic regression of outcome on instrument")
+  logreg <- try(glm(pos_test_in_week ~ gr80, family = "binomial", data = week_df_either))
   if (class(logreg) != "try-error") {
     print(summary(logreg))
     print(exp(cbind(coef(logreg), confint.default(logreg))))
