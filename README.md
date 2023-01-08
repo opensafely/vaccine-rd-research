@@ -1,15 +1,12 @@
-# covid-vaccine-research-template
-This is a template with a premade study definition with some basic variables for research on the COVID vaccine. This could be used for vaccine monitoring or the starter project for vaccine efficacy. 
+# Covid vaccine regression discontinuity design analysis
 
-# _title goes here_
+This project is no longer active. It is described here <https://www.opensafely.org/approved-projects/#project-3>.
 
-This is the code and configuration for our paper, _name goes here_
-
-* The paper is [here]()
-* Raw model outputs, including charts, crosstabs, etc, are in `released_outputs/`
-* If you are interested in how we defined our variables, take a look at the [study definition](analysis/study_definition.py); this is written in `python`, but non-programmers should be able to understand what is going on there
-* If you are interested in how we defined our code lists, look in the [codelists folder](./codelists/).
-* Developers and epidemiologists interested in the framework should review [the OpenSAFELY documentation](https://docs.opensafely.org)
+Results in this repository *MUST NOT* be considered an accurate or valid representation of the study purpose.
+These data may reflect an incomplete or incorrect analysis with no further ongoing work.
+The repository content has *ONLY* been made public to support the OpenSAFELY open science and transparency principles and to support the sharing of re-usable code for other subsequent users.
+The results have not been peer-reviewed.
+No clinical, policy or safety conclusions must be drawn from any of the data here.
 
 # About the OpenSAFELY framework
 
