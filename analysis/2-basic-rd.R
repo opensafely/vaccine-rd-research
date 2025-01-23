@@ -1,3 +1,7 @@
+version
+
+plot(1:10)
+
 # load packages
 library('tidyverse')
 
