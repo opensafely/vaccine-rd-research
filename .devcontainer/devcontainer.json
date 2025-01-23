@@ -1,6 +1,6 @@
 {
   "image": "ghcr.io/opensafely-core/r:v2",
-  "forwardPorts": [8787],
+  // "forwardPorts": [8787],
   "customizations": {
     // Configure properties specific to VS Code.
     "vscode": {
