@@ -6,6 +6,9 @@
     "vscode": {
       // Add the IDs of extensions you want installed when the container is created.
       // "extensions": ["REditorSupport.r"]
+    },
+    "settings": {
+      "r.plot.useHttpgd": true,
     }
   }
 }
