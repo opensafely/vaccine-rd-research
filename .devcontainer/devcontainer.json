@@ -9,7 +9,8 @@
     },
     "settings": {
       "r.plot.useHttpgd": true,
+      "r.rpath.lsp": "/usr/bin/R",
+      "r.rterm.linux": "/usr/bin/R",
     }
   }
 }
-
