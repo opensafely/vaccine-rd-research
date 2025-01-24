@@ -8,7 +8,7 @@
       "extensions": ["REditorSupport.r"]
     },
     "settings": {
-      "r.plot.useHttpgd": true,
+      "r.plot.useHttpgd": false,
       "r.rpath.lsp": "/usr/bin/R",
       "r.rterm.linux": "/usr/bin/R",
     }
